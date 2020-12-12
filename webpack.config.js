@@ -1,7 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  mode: 'production',
+  //配置模式 开发 或者生产
+  mode: 'development',
   entry: {
     index: './lib/index.tsx'
   },
@@ -12,6 +13,9 @@ module.exports = {
     //统一模块定义 umd, 统一(兼容)了commjs和 amd
     libraryTarget: 'umd',
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+},
   module: {
     rules: [
       {
@@ -24,6 +28,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     })
-  ]
-
+  ],
+  //外部的库，不打包
+  externals: {
+    react: {
+        commonjs: 'react',
+        commonjs2: 'react',
+        amd: 'react',
+        root: 'React',
+    },
+    'react-dom': {
+        commonjs: 'react-dom',
+        commonjs2: 'react-dom',
+        amd: 'react-dom',
+        root: 'ReactDOM',
+    },
+}
 }
