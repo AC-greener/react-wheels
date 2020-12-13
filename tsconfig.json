@@ -21,6 +21,8 @@
     "noUnusedLocals": true
   },
   "include": [
+    // tsconfig要管这些目录
+    "lib/**/*",
   ],
   "exclude": [
     "node_modules",

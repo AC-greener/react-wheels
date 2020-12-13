@@ -7,5 +7,7 @@ console.log('hi')
 ReactDOM.render(
 <div>
   <Icon name='wechat'/>
+  <Icon name='qq'/>
+  <Icon name='360'/>
 </div>, document.getElementById('root'))
 export { Button }

@@ -37,7 +37,9 @@
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "svg-sprite-loader": "^5.1.1"
+
   },
   "dependencies": {
     "react": "^16.8.4",
