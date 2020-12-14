@@ -1,5 +1,26 @@
 .xui-icon {
   width: 1em;
   height: 1em;
+  font-size: 1.25rem;
   display: inline-block;
+  fill: currentColor;
+  &.color-primary {
+    color: #1976d2;
+  }
+  &.color-secondary {
+    color: rgb(220, 0, 78);
+  }
+  &.color-action {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  &.color-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+  &.size-small {
+    font-size: 1rem;
+  }
+  &.size-large {
+    font-size: 1.5rem;
+  }
+
 }
