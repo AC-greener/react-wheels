@@ -1,16 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon render success 1`] = `
-<svg
-  className="xui-icon"
->
-  <use
-    xlinkHref="#undefined"
-  />
-</svg>
-`;
-
-exports[`Icon 可以传递name 1`] = `
+exports[`Icon should render success 1`] = `
 <svg
   className="xui-icon"
 >
