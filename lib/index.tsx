@@ -18,4 +18,5 @@ ReactDOM.render(
   <Icon fontSize="large" name="wechat"/>
   <Icon style={{ fontSize: 40 }} name="wechat"/>
 </div>, document.getElementById('root'))
-export { Button }
+export { Button, Icon }
+// export { default as Icon } from './icon/icon'

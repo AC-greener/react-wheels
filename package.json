@@ -1,7 +1,10 @@
 {
-  "name": "react-wheels",
-  "version": "1.0.0",
+  "name": "tongtongfakeui",
+  "version": "0.1.1",
   "description": "",
+  "files": [
+    "/dist/**/*"
+  ],
   "main": "dist/lib/index",
   "types": "dist/lib/index",
   "scripts": {
