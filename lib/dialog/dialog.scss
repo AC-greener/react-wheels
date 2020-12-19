@@ -1,0 +1,35 @@
+
+.fake-modal-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  & > .fake-modal-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,.45);
+  }
+  
+  & > .fake-modal-content {
+    font-size: 14px;
+    position: fixed;
+    width: 520px;
+    background-color: rgb(255, 255, 255);
+    & > .fake-modal-header {
+      padding: 16px 24px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    & > .fake-modal-body {
+      padding: 24px;
+    }
+    & > .fake-modal-footer {
+      padding: 10px 16px;
+      text-align: right;
+    }
+  }
+} 
