@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './dialog.scss'
 import '../base.scss'
 import classes from '../helper/classes'
 interface DialogProps {
   title?: string
   visible: boolean
-  onOk?: Function
-  onCancel?: Function
+  onOk: Function
+  onCancel: Function
   closable?: boolean
+  maskClosable?: boolean
+  width?: number
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
-  const { visible, onOk, onCancel } = props
+  const modalRef = useRef(null)
+  const { visible, onOk, onCancel, maskClosable, width, ...restProps } = props
+  console.log(visible)
   const classResult = classes("fake-modal-root", visible ? 'show' : '')
+
+  const style = {
+    width: width ? width : 520
+  }
+  
   const handleOk = (e) => {
     if(typeof onOk !== "function") {
       throw new Error('请传入正确的参数类型！')
@@ -26,12 +35,19 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
     }
     onCancel(e)
   }
+
+  const handleMaskClick = (e) => {
+    if(maskClosable) {
+      // modalRef.current.classList.remove('show')
+    }
+  }
+
   return (
-    <div className={classResult}>
-      <div className="fake-modal-mask">
+    <div ref={modalRef} className={classResult} {...restProps}>
+      <div className="fake-modal-mask" onClick={ handleMaskClick }>
 
       </div>
-      <div className="fake-modal-content">
+      <div className="fake-modal-content" style={ style }>
         <div className="fake-modal-header">
           <div className="fake-modal-title">
             title
@@ -49,5 +65,10 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 
   )
 }
+
+Dialog.defaultProps = {
+  maskClosable: true
+}
+
 
 export default Dialog

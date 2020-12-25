@@ -14,7 +14,7 @@ const IconExample: React.FunctionComponent = () => {
       <Icon fontSize="small" name="wechat"/>
       <Icon name="wechat"/>
       <Icon fontSize="large" name="wechat"/>
-      <Icon style={{ fontSize: 40 }} name="wechat"/>
+      <Icon style={{ fontSize: '41px', color: 'red' }} name="wechat"/>
     </div>
   );
 };
