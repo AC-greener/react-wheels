@@ -19,6 +19,7 @@ const DialogExample: React.FunctionComponent = () => {
         width={ 800 }
         visible={ visible }
         onOk={ handleOk }
+        okText='确定吗'
         onCancel={ handleCancel }
       />
     </div>

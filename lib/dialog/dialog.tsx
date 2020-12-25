@@ -10,18 +10,19 @@ interface DialogProps {
   closable?: boolean
   maskClosable?: boolean
   width?: number
+  cancelText?: string
+  okText?: string
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
   const modalRef = useRef(null)
-  const { visible, onOk, onCancel, maskClosable, width, ...restProps } = props
-  console.log(visible)
+  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, ...restProps } = props
   const classResult = classes("fake-modal-root", visible ? 'show' : '')
 
   const style = {
     width: width ? width : 520
   }
-  
+
   const handleOk = (e) => {
     if(typeof onOk !== "function") {
       throw new Error('请传入正确的参数类型！')
@@ -57,8 +58,8 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
           body
         </div>
         <div className="fake-modal-footer">
-          <button onClick={ handleOk }>确定</button>
-          <button onClick={ handleCancel }>取消</button>
+          <button onClick={ handleOk }>{ okText }</button>
+          <button onClick={ handleCancel }>{ cancelText }</button>
         </div>
       </div>
     </div>
@@ -67,7 +68,9 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 }
 
 Dialog.defaultProps = {
-  maskClosable: true
+  maskClosable: true,
+  okText: '确定',
+  cancelText: '取消',
 }
 
 
