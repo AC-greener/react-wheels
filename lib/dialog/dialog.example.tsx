@@ -4,7 +4,7 @@ import Dialog from './dialog';
 const DialogExample: React.FunctionComponent = () => {
   return (
     <div>
-      <Dialog visible={ true } />
+      <Dialog visible={ false } />
     </div>
   );
 };

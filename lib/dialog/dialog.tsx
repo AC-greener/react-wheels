@@ -1,6 +1,7 @@
 import React from 'react'
 import './dialog.scss'
 import '../base.scss'
+import classes from '../helper/classes'
 interface DialogProps {
   title?: string
   visible: boolean
@@ -9,9 +10,11 @@ interface DialogProps {
   closable?: boolean
 }
 
-const Dialog: React.FunctionComponent<DialogProps> = () => {
+const Dialog: React.FunctionComponent<DialogProps> = (props) => {
+  const { visible } = props
+  const result = classes("fake-modal-root", visible ? 'show' : '')
   return (
-    <div className="fake-modal-root">
+    <div className={result}>
       <div className="fake-modal-mask">
 
       </div>
