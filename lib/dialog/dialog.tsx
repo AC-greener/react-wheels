@@ -11,10 +11,23 @@ interface DialogProps {
 }
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
-  const { visible } = props
-  const result = classes("fake-modal-root", visible ? 'show' : '')
+  const { visible, onOk, onCancel } = props
+  const classResult = classes("fake-modal-root", visible ? 'show' : '')
+  const handleOk = (e) => {
+    if(typeof onOk !== "function") {
+      throw new Error('请传入正确的参数类型！')
+    }
+    onOk(e)
+  }
+
+  const handleCancel = (e) => {
+    if(typeof onOk !== "function") {
+      throw new Error('请传入正确的参数类型！')
+    }
+    onCancel(e)
+  }
   return (
-    <div className={result}>
+    <div className={classResult}>
       <div className="fake-modal-mask">
 
       </div>
@@ -28,8 +41,8 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
           body
         </div>
         <div className="fake-modal-footer">
-          <button>确定</button>
-          <button>取消</button>
+          <button onClick={ handleOk }>确定</button>
+          <button onClick={ handleCancel }>取消</button>
         </div>
       </div>
     </div>
