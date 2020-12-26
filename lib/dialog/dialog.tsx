@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import './dialog.scss'
 import '../base.scss'
 import classes from '../helper/classes'
+import { scopedClassMaker } from '../helper/index'
 interface DialogProps {
   title?: string
   visible: boolean
@@ -14,10 +15,12 @@ interface DialogProps {
   okText?: string
 }
 
+const scopedClass = scopedClassMaker('fake-modal')
+
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
   const modalRef = useRef(null)
   const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, title, ...restProps } = props
-  const classResult = classes("fake-modal", visible ? 'show' : '')
+  const classResult = classes(scopedClass(), visible ? 'show' : '')
 
   const style = {
     width: width ? width : 520
@@ -45,21 +48,21 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
   
   return (
     <div ref={modalRef} className={classResult} {...restProps}>
-      <div className="fake-modal-mask" onClick={ handleMaskClick }>
+      <div className={scopedClass("mask")} onClick={ handleMaskClick }>
       </div>
-      <div className="fake-modal-container">
-        <div className="fake-modal-content fake-radius" style={ style }>
-          <header className="fake-modal-header">
-            <h2 className="fake-modal-title">
+      <div className={scopedClass("container")}>
+        <div className={`${scopedClass("content")} fake-radius`} style={ style }>
+          <header className={scopedClass("header")}>
+            <h2 className={scopedClass("title")}>
             { title }
             </h2>
           </header>
-          <main className="fake-modal-body">
+          <main className={scopedClass("body")}>
             <p>
               {props.children}
             </p>
           </main>
-          <footer className="fake-modal-footer">
+          <footer className={scopedClass("footer")}>
             <button onClick={ handleOk }>{ okText }</button>
             <button onClick={ handleCancel }>{ cancelText }</button>
           </footer>
