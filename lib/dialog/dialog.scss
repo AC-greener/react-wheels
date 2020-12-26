@@ -5,7 +5,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  & > .fake-modal-mask {
+  &-mask {
     position: fixed;
     z-index: -1;
     top: 0;
@@ -17,7 +17,7 @@
     opacity: 1;
     transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
-  & > .fake-modal-container {
+  &-container {
     display: flex;
     height: 100%;
     width: 100vw;
@@ -26,14 +26,14 @@
     opacity: 1;
     transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
-    & > .fake-modal-content {
+    & .fake-modal-content {
       margin: 32px;
       width: 520px;
       background-color: rgb(255, 255, 255);
       box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12);
-      & > .fake-modal-header {
+      & .fake-modal-header {
         padding: 16px 24px;
-        & > h2 {
+        & h2 {
           font-weight: 500;
           color: rgba(0, 0, 0, 0.87);
           line-height: 1.6;
@@ -42,9 +42,9 @@
           font-weight: 500;
         }
       }
-      & > .fake-modal-body {
+      & .fake-modal-body {
         padding: 8px 24px;
-        & > p {
+        & p {
           color: rgba(0, 0, 0, 0.54);
           margin-bottom: 12px;
           font-size: 1rem;
@@ -52,13 +52,14 @@
           line-height: 1.5;
         }
       }
-      & > .fake-modal-footer {
+      & .fake-modal-footer {
         padding: 10px 16px;
         text-align: right;
       }
     }
   }
+  &.show {
+    visibility: visible;
+  } 
 }
-.fake-modal.show {
-  visibility: visible;
-} 
+
