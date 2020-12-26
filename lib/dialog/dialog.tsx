@@ -48,18 +48,22 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
       <div className="fake-modal-mask" onClick={ handleMaskClick }>
 
       </div>
-      <div className="fake-modal-content" style={ style }>
-        <div className="fake-modal-header">
-          <div className="fake-modal-title">
-            title
+      <div className="fake-modal-container">
+        <div className="fake-modal-content" style={ style }>
+          <div className="fake-modal-header">
+            <h2 className="fake-modal-title">
+            Use Google's location service?
+            </h2>
           </div>
-        </div>
-        <div className="fake-modal-body">
-          body
-        </div>
-        <div className="fake-modal-footer">
-          <button onClick={ handleOk }>{ okText }</button>
-          <button onClick={ handleCancel }>{ cancelText }</button>
+          <div className="fake-modal-body">
+            <p>
+              Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+            </p>
+          </div>
+          <div className="fake-modal-footer">
+            <button onClick={ handleOk }>{ okText }</button>
+            <button onClick={ handleCancel }>{ cancelText }</button>
+          </div>
         </div>
       </div>
     </div>

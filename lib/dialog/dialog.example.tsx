@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Dialog from './dialog';
 
 const DialogExample: React.FunctionComponent = () => {
-  const [visible, setVisible] =  useState(false)
+  const [visible, setVisible] =  useState(true)
 
   const handleOk = (e) => {
     setVisible(false)
@@ -16,7 +16,7 @@ const DialogExample: React.FunctionComponent = () => {
     <div>
       <button onClick={ () => setVisible(true)}>打开dialog</button>
       <Dialog
-        width={ 800 }
+        width={ 600 }
         visible={ visible }
         onOk={ handleOk }
         okText='确定吗'
