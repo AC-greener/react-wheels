@@ -16,8 +16,8 @@ interface DialogProps {
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
   const modalRef = useRef(null)
-  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, ...restProps } = props
-  const classResult = classes("fake-modal-root", visible ? 'show' : '')
+  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, title, ...restProps } = props
+  const classResult = classes("fake-modal", visible ? 'show' : '')
 
   const style = {
     width: width ? width : 520
@@ -42,28 +42,27 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
       // modalRef.current.classList.remove('show')
     }
   }
-
+  
   return (
     <div ref={modalRef} className={classResult} {...restProps}>
       <div className="fake-modal-mask" onClick={ handleMaskClick }>
-
       </div>
       <div className="fake-modal-container">
-        <div className="fake-modal-content" style={ style }>
-          <div className="fake-modal-header">
+        <div className="fake-modal-content fake-radius" style={ style }>
+          <header className="fake-modal-header">
             <h2 className="fake-modal-title">
-            Use Google's location service?
+            { title }
             </h2>
-          </div>
-          <div className="fake-modal-body">
+          </header>
+          <main className="fake-modal-body">
             <p>
-              Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+              {props.children}
             </p>
-          </div>
-          <div className="fake-modal-footer">
+          </main>
+          <footer className="fake-modal-footer">
             <button onClick={ handleOk }>{ okText }</button>
             <button onClick={ handleCancel }>{ cancelText }</button>
-          </div>
+          </footer>
         </div>
       </div>
     </div>
