@@ -22,7 +22,7 @@ interface DialogProps {
 const scopedClass = scopedClassMaker('fake-modal')
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
-  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, title, afterClose, ...restProps } = props
+  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, title, closable, afterClose, ...restProps } = props
   const classResult = classes(scopedClass())
 
   const style = {
@@ -59,9 +59,12 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
       <div className={ scopedClass("container") }>
         <div className={`${ scopedClass("content") } fake-radius`} style={ style }>
           <header className={ scopedClass("header") }>
-            <span onClick={ handleCancel} className={ scopedClass("close") }>
-            <Icon name="close" fontSize="small"/>
-            </span>
+            {
+              props.closable &&
+              <span onClick={ handleCancel} className={ scopedClass("close") }>
+                <Icon name="close" fontSize="small"/>
+              </span>
+            }
             <h2 className={ scopedClass("title") }>
             { title }
             </h2>
@@ -84,6 +87,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 
 Dialog.defaultProps = {
   maskClosable: true,
+  closable: true,
   okText: '确定',
   cancelText: '取消',
 }
@@ -99,7 +103,7 @@ const alert = (props: alertProps) => {
     ReactDOM.unmountComponentAtNode(div)
     div.remove()
   }
-  
+
   const component = (
     <Dialog title={ props.title } visible={true} onOk={close} onCancel={close}>
       { props.content }
