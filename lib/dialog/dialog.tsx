@@ -6,7 +6,7 @@ import { Icon } from '../index'
 import classes from '../helper/classes'
 import { scopedClassMaker, isFunction } from '../helper/index'
 
-interface DialogProps {
+interface DialogProps extends React.HTMLAttributes<Element> {
   visible: boolean
   title?: string
   closable?: boolean
@@ -22,8 +22,8 @@ interface DialogProps {
 const scopedClass = scopedClassMaker('fake-modal')
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
-  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, title, closable, afterClose, ...restProps } = props
-  const classResult = classes(scopedClass())
+  const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, className, title, closable, afterClose, ...restProps } = props
+  const classResult = classes(scopedClass(), className)
 
   const style = {
     width: width ? width : 520

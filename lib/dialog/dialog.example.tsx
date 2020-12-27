@@ -21,6 +21,7 @@ const DialogExample: React.FunctionComponent = () => {
       <button onClick={ () => setVisible(true)}>打开dialog</button>
       <button onClick={ () => alert({content: 'hello world', title: '2020'})}>一句话打开dialog</button>
       <Dialog
+        className='a b'
         title="Use Google's location service?"
         width={ 600 }
         visible={ visible }
