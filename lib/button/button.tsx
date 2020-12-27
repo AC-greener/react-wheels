@@ -4,16 +4,16 @@ import classes from '../helper/classes'
 import { scopedClassMaker } from '../helper/index'
 
 interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
-
+  color?: string
 }
 const scopedClass = scopedClassMaker('fake-button')
 const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
-  const { className, ...restProps } = props
+  const { className, color, ...restProps } = props
 
-  const classResult = classes(scopedClass(), className)
+  const classResult = classes(scopedClass(), className, "fake-radius", color)
   return (
-    <button className={classResult} {...restProps}>
-      123
+    <button type="button" className={classResult} {...restProps}>
+      <span>{ props.children }</span>
     </button>
   )
 }

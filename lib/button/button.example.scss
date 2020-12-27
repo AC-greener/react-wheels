@@ -1,0 +1,11 @@
+button {
+  margin: 6px;
+  text-transform: uppercase;
+  &.custom {
+    color: #fff;
+    background-color: rgb(255,139,167);
+  }
+  &.custom:hover {
+    background-color: #ec7894;
+  }
+}
