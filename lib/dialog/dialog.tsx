@@ -1,14 +1,15 @@
-import React, { useRef } from 'react'
+import React, { } from 'react'
 import './dialog.scss'
 import '../base.scss'
 import { Icon } from '../index'
 import classes from '../helper/classes'
 import { scopedClassMaker } from '../helper/index'
+
 interface DialogProps {
   title?: string
   visible: boolean
-  onOk: Function
-  onCancel: Function
+  onOk: React.MouseEventHandler
+  onCancel: React.MouseEventHandler
   closable?: boolean
   maskClosable?: boolean
   width?: number
@@ -19,7 +20,6 @@ interface DialogProps {
 const scopedClass = scopedClassMaker('fake-modal')
 
 const Dialog: React.FunctionComponent<DialogProps> = (props) => {
-  const modalRef = useRef(null)
   const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, title, ...restProps } = props
   const classResult = classes(scopedClass(), visible ? 'show' : '')
 
@@ -27,46 +27,46 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
     width: width ? width : 520
   }
 
-  const handleOk = (e) => {
+  const handleOk: React.MouseEventHandler = (e) => {
     if(typeof onOk !== "function") {
       throw new Error('请传入正确的参数类型！')
     }
     onOk(e)
   }
 
-  const handleCancel = (e) => {
+  const handleCancel: React.MouseEventHandler = (e) => {
     if(typeof onOk !== "function") {
       throw new Error('请传入正确的参数类型！')
     }
     onCancel(e)
   }
 
-  const handleMaskClick = (e) => {
+  const handleMaskClick: React.MouseEventHandler = (e) => {
     if(maskClosable) {
-      // modalRef.current.classList.remove('show')
+      props.onCancel(e)
     }
   }
   
   return (
-    <div ref={modalRef} className={classResult} {...restProps}>
-      <div className={scopedClass("mask")} onClick={ handleMaskClick }>
+    <div className={classResult} {...restProps}>
+      <div className={ scopedClass("mask") } onClick={ handleMaskClick }>
       </div>
-      <div className={scopedClass("container")}>
-        <div className={`${scopedClass("content")} fake-radius`} style={ style }>
-          <header className={scopedClass("header")}>
-            <span className={scopedClass("close")}>
+      <div className={ scopedClass("container") }>
+        <div className={`${ scopedClass("content") } fake-radius`} style={ style }>
+          <header className={ scopedClass("header") }>
+            <span onClick={ handleCancel} className={ scopedClass("close") }>
              <Icon name="close" fontSize="small"/>
             </span>
-            <h2 className={scopedClass("title")}>
+            <h2 className={ scopedClass("title") }>
             { title }
             </h2>
           </header>
-          <main className={scopedClass("body")}>
+          <main className={ scopedClass("body") }>
             <p>
               {props.children}
             </p>
           </main>
-          <footer className={scopedClass("footer")}>
+          <footer className={ scopedClass("footer")} >
             <button onClick={ handleOk }>{ okText }</button>
             <button onClick={ handleCancel }>{ cancelText }</button>
           </footer>
