@@ -6,7 +6,7 @@ import { Icon } from '../index'
 import classes from '../helper/classes'
 import { scopedClassMaker, isFunction } from '../helper/index'
 
-interface DialogProps extends React.HTMLAttributes<Element> {
+interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   visible: boolean
   title?: string
   closable?: boolean
