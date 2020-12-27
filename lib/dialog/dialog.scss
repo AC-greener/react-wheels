@@ -1,13 +1,13 @@
 
 .fake-modal {
   position: fixed;
-  visibility: hidden;
+  visibility: visible;
   height: 100%;
   top: 0;
   left: 0;
   &-mask {
     position: fixed;
-    z-index: 10;
+    z-index: 1;
     top: 0;
     right: 0;
     bottom: 0;
@@ -28,7 +28,7 @@
 
     & .fake-modal-content {
       position: absolute;
-      z-index: 999;
+      z-index: 2;
       margin: 32px;
       width: 520px;
       background-color: rgb(255, 255, 255);
@@ -77,8 +77,5 @@
       }
     }
   }
-  &.show {
-    visibility: visible;
-  } 
 }
 

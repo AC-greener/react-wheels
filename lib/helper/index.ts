@@ -3,6 +3,10 @@ const scopedClassMaker = (prefix: string) => {
     return [prefix, name].filter(Boolean).join('-')
   }
 }
+const isFunction = (value) => {
+  return typeof value === "function"
+}
 export {
-  scopedClassMaker
+  scopedClassMaker,
+  isFunction
 }
