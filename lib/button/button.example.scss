@@ -8,4 +8,10 @@ button {
   &.custom:hover {
     background-color: #ec7894;
   }
+  &.text-custom {
+    color: rgb(255,139,167);
+  }
+  &.text-custom:hover {
+    background: #ff8ba70f;
+  }
 }
