@@ -32,6 +32,7 @@
       background-color: rgb(255, 255, 255);
       box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12);
       & .fake-modal-header {
+        position: relative;
         padding: 16px 24px;
         & h2 {
           font-weight: 500;
@@ -40,6 +41,21 @@
           font-size: 1.25rem;
           font-family: "Roboto", "Helvetica", "Arial", sans-serif;
           font-weight: 500;
+        }
+        & .fake-modal-close {
+          position: absolute;
+          cursor: pointer;
+          width: 16px;
+          height: 16px;
+          right: 8px;
+          top: 8px;
+          border-radius: 50%;
+          color: #999999;
+          text-align: center;
+          vertical-align: middle;
+        }
+        & .fake-modal-close:hover {
+          background: rgb(246, 246, 246);
         }
       }
       & .fake-modal-body {

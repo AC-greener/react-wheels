@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import './dialog.scss'
 import '../base.scss'
+import { Icon } from '../index'
 import classes from '../helper/classes'
 import { scopedClassMaker } from '../helper/index'
 interface DialogProps {
@@ -53,6 +54,9 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
       <div className={scopedClass("container")}>
         <div className={`${scopedClass("content")} fake-radius`} style={ style }>
           <header className={scopedClass("header")}>
+            <span className={scopedClass("close")}>
+             <Icon name="close" fontSize="small"/>
+            </span>
             <h2 className={scopedClass("title")}>
             { title }
             </h2>
