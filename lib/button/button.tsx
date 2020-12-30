@@ -16,8 +16,31 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
     className, "fake-radius",
     color ? `fake-${type ? type : "text"}-${color}`: ""
   )
+  const handleBtnClick = (e) => {
+    createRipple(e)
+  }
+  const createRipple = (event) => {
+    const button = event.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    console.log(circle.style.width, circle.style.left, circle.style.top)
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  }
   return (
-    <button type="button" className={classResult} {...restProps}>
+    <button onClick={ handleBtnClick } type="button" className={classResult} {...restProps}>
       <span>{ props.children }</span>
     </button>
   )

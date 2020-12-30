@@ -2,6 +2,7 @@
 @import '../base.scss';
 
 .fake-button {
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -13,8 +14,8 @@
   font-size: 1em;
   line-height: 1.5;
   color: rgba(0, 0, 0);
-  // background-color: #e0e0e0;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow: hidden;
 
   &.fake-contained {
     box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
@@ -68,7 +69,7 @@
 }
 .fake-outlined {
   background: none;
-  border: 1px solid rgba(0, 0, 0, 0.23);
+  border: 1px solid currentColor;
 }
 .fake-text:hover, .fake-outlined:hover {
   background-color: rgba(0,0,0,.04);
@@ -109,4 +110,20 @@
 }
 .fake-text-purple:hover, .fake-outlined-purple:hover {
   background-color: #9c27b017;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: currentColor;
+  opacity: .2;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
