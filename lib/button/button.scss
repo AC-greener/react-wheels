@@ -66,36 +66,47 @@
 .fake-text {
   background: none;
 }
-.fake-text:hover {
+.fake-outlined {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+}
+.fake-text:hover, .fake-outlined:hover {
   background-color: rgba(0,0,0,.04);
 }
-.fake-text-primary {
+.fake-outlined-purple,
+.fake-outlined-rose,
+.fake-outlined-primary,
+.fake-outlined-info,
+.fake-outlined-green  {
+  border: 1px solid currentColor;
+}
+.fake-text-primary, .fake-outlined-primary {
   color: $primary-color;
 }
-.fake-text-primary:hover {
+.fake-text-primary:hover, .fake-outlined-primary:hover {
   background-color: rgba(25, 118, 210, 0.09);
 }
-.fake-text-info {
+.fake-text-info, .fake-outlined-info {
   color: $info-color;
 }
-.fake-text-info:hover {
+.fake-text-info:hover, .fake-outlined-info:hover {
   background-color: #00acc10f;
 }
-.fake-text-green {
+.fake-text-green, .fake-outlined-green {
   color: $green-color;
 }
-.fake-text-green:hover {
+.fake-text-green:hover, .fake-outlined-green:hover {
   background-color:#4caf5014;
 }
-.fake-text-rose {
+.fake-text-rose, .fake-outlined-rose {
   color: $rose-color;
 }
-.fake-text-rose:hover {
+.fake-text-rose:hover, .fake-outlined-rose:hover {
   background-color:#e91e630f;
 }
-.fake-text-purple {
+.fake-text-purple, .fake-outlined-purple {
   color: $purple-color;
 }
-.fake-text-purple:hover {
+.fake-text-purple:hover, .fake-outlined-purple:hover {
   background-color: #9c27b017;
 }

@@ -1,4 +1,4 @@
-button {
+.fake-button {
   margin: 6px;
   text-transform: uppercase;
   &.custom {
@@ -12,6 +12,13 @@ button {
     color: rgb(255,139,167);
   }
   &.text-custom:hover {
+    background: #ff8ba70f;
+  }
+  &.outlined-custom {
+    color: rgb(255,139,167);
+    border: 1px solid #ec7894;
+  }
+  &.outlined-custom:hover {
     background: #ff8ba70f;
   }
 }
