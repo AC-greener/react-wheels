@@ -9,6 +9,7 @@ const ButtonExample: React.FunctionComponent = () => {
           Contained Buttons 实心按钮
         </h1>
         <Button type="contained">default</Button>
+        <Button type="contained" disabled>disabled</Button>
         <Button type="contained" color="primary">primary</Button>
         <Button type="contained" color="info">info</Button>
         <Button type="contained" color="green">green</Button>
@@ -21,6 +22,7 @@ const ButtonExample: React.FunctionComponent = () => {
         Text Buttons 文本按钮
         </h1>
         <Button >default</Button>
+        <Button disabled>disabled</Button>
         <Button color="primary">primary</Button>
         <Button color="info">info</Button>
         <Button color="green">green</Button>
@@ -33,6 +35,7 @@ const ButtonExample: React.FunctionComponent = () => {
         Outlined Buttons 描边按钮
         </h1>
         <Button type="outlined">default</Button>
+        <Button type="outlined" disabled>disabled</Button>
         <Button type="outlined" color="primary">primary</Button>
         <Button type="outlined" color="info">info</Button>
         <Button type="outlined" color="green">green</Button>

@@ -20,6 +20,16 @@
   &.fake-contained {
     box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
   }
+  &.fake-disabled {
+    cursor: default;
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  &.fake-contained:hover.fake-disabled {
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
   &.fake-contained:hover {
     box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
     background-color: #d5d5d5;
@@ -67,10 +77,20 @@
 .fake-text {
   background: none;
 }
+.fake-text.fake-disabled, .fake-text:hover.fake-disabled {
+  background: none;
+}
+.fake-outlined:hover.fake-disabled {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.fake-outlined.fake-disabled {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
 .fake-outlined {
   background: none;
   border: 1px solid currentColor;
 }
+
 .fake-text:hover, .fake-outlined:hover {
   background-color: rgba(0,0,0,.04);
 }
