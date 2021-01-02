@@ -17,7 +17,7 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
     disabled? `fake-disabled` : '',
     className,
     "fake-radius",
-    color ? `fake-${type ? type : "text"}-${color}`: ""
+    color ? `fake-${type}-${color}`: ""
   )
   const handleBtnClick = (e) => {
     createRipple(e)
