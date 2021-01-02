@@ -8,9 +8,9 @@ const sc = scopedClassMaker('fake-layout')
 const Footer: React.FunctionComponent<Props> = (props) => {
   const {className, ...rest} = props;
   return (
-    <div className={classes(sc('footer'), className)} {...rest}>
+    <footer className={classes(sc('footer'), className)} {...rest}>
       {props.children}
-    </div>
+    </footer>
   )
 }
 

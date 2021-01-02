@@ -11,7 +11,7 @@ export default function () {
     <div>
       <div>
         <h1>第一个例子</h1>
-        <Layout style={{height: 500, width: 500}}>
+        <Layout style={{height: 200, width: 500}}>
           <Header className="x">header</Header>
           <Content className="y">content</Content>
           <Footer className="x">footer</Footer>
@@ -19,7 +19,7 @@ export default function () {
       </div>
       <div>
         <h1>第二个例子</h1>
-        <Layout style={{height: 500, width: 500}}>
+        <Layout style={{height: 200, width: 500}}>
           <Header className="x">header</Header>
           <Layout>
             <Aside className="z">aside</Aside>
@@ -30,7 +30,7 @@ export default function () {
       </div>
       <div>
         <h1>第三个例子</h1>
-        <Layout style={{height: 500, width: 500}}>
+        <Layout style={{height: 200, width: 500}}>
           <Header className="x">header</Header>
           <Layout>
             <Content className="y">content</Content>
@@ -39,9 +39,11 @@ export default function () {
           <Footer className="x">footer</Footer>
         </Layout>
       </div>
+      
+
       <div>
         <h1>第四个例子</h1>
-        <Layout style={{height: 500, width: 500}}>
+        <Layout style={{height: 200, width: 500}}>
           <Aside className="z">aside</Aside>
           <Layout>
             <Header className="x">header</Header>
