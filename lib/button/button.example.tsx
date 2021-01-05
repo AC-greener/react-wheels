@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './button';
-
+import { Icon } from '../index'
 import './button.example.scss'
 const ButtonExample: React.FunctionComponent = () => {
   return (
@@ -51,6 +51,27 @@ const ButtonExample: React.FunctionComponent = () => {
         <Button type="contained" color="primary" size="small">small</Button>
         <Button type="contained" color="primary" size="default">default</Button>
         <Button type="contained" color="primary" size="large">large</Button>
+      </div>
+      <div >
+        <h1>
+          带Icon的按钮
+        </h1>
+        <Button 
+          icon={<Icon name='wechat'/>} 
+          type="contained" 
+          color="primary" 
+          size="small">wechat</Button>
+        <Button 
+          icon={<Icon name='wechat'/>} 
+          type="contained" 
+          color="rose" 
+          size="small">wechat</Button>
+             <Button 
+          icon={<Icon name='wechat'/>} 
+          iconPosition='left'
+          type="contained" 
+          color="primary" 
+          size="default">wechat</Button>
       </div>
     </div>
   );

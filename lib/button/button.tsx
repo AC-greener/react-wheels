@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment, ReactNode } from 'react'
 import './button.scss'
 import classes from '../helper/classes'
 import { scopedClassMaker } from '../helper/index'
@@ -8,12 +8,15 @@ interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
   type?: string
   disabled?: boolean
   size?: string
+  icon?: ReactNode
+  iconPosition?: string
 }
 const scopedClass = scopedClassMaker('fake-button')
 const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
-  const { className, color, type, disabled, size, ...restProps } = props
+  const { className, color, type, disabled, size, icon, ...restProps } = props
   const classResult = classes(
     scopedClass(),
+    'fake-icon-end',
     `fake-button-${size}`,
     `fake-${type}`,
     disabled? `fake-disabled` : '',
@@ -43,6 +46,23 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
 
     button.appendChild(circle);
   }
+  const Span = () => {
+    if(props.icon) {
+      if(props.iconPosition === 'left') {
+        return <Fragment>
+          <span className='icon-left'>{props.icon}</span>
+          <span>{ props.children }</span>
+        </Fragment>
+      } else {
+        return <Fragment>
+          <span>{ props.children }</span>
+          <span className='icon-right'>{props.icon}</span>
+        </Fragment>
+      }
+    } else {
+      return <span>{ props.children }</span>
+    }
+  }
   return (
     <button 
       disabled={ disabled ? true : false} 
@@ -50,14 +70,15 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
       type="button" 
       className={classResult} 
       {...restProps}>
-      <span>{ props.children }</span>
+        { Span() }
     </button>
   )
 }
 
 Icon.defaultProps = {
   type: 'text',
-  size: 'default'
+  size: 'default',
+  iconPosition: 'right'
 }
 
 

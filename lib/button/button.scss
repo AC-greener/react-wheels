@@ -16,6 +16,14 @@
   color: rgba(0, 0, 0);
   transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   overflow: hidden;
+  .icon-left {
+    margin-right: 8px;
+    padding-top: 5px;
+  }
+  .icon-right {
+    padding-top: 5px;
+    margin-left: 8px;
+  }
   &.fake-button-small {
     font-size: 13px;
     padding: 3px 9px;
