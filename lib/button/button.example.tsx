@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './button';
+
 import './button.example.scss'
 const ButtonExample: React.FunctionComponent = () => {
   return (
@@ -42,6 +43,14 @@ const ButtonExample: React.FunctionComponent = () => {
         <Button type="outlined" color="rose">rose</Button>
         <Button type="outlined" color="purple">purple</Button>
         <Button type="outlined" className="outlined-custom">custom css</Button>
+      </div>
+      <div >
+        <h1>
+          尺寸
+        </h1>
+        <Button type="contained" color="primary" size="small">small</Button>
+        <Button type="contained" color="primary" size="default">default</Button>
+        <Button type="contained" color="primary" size="large">large</Button>
       </div>
     </div>
   );

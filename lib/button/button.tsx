@@ -7,12 +7,14 @@ interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
   color?: string
   type?: string
   disabled?: boolean
+  size?: string
 }
 const scopedClass = scopedClassMaker('fake-button')
 const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
-  const { className, color, type, disabled, ...restProps } = props
+  const { className, color, type, disabled, size, ...restProps } = props
   const classResult = classes(
     scopedClass(),
+    `fake-button-${size}`,
     `fake-${type}`,
     disabled? `fake-disabled` : '',
     className,
@@ -54,7 +56,8 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
 }
 
 Icon.defaultProps = {
-  type: 'text'
+  type: 'text',
+  size: 'default'
 }
 
 
