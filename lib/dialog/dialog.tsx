@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import ReactDOM from 'react-dom';
 import './dialog.scss'
 import '../base.scss'
-import { Icon } from '../index'
+import { Icon, Button } from '../index'
 import classes from '../helper/classes'
 import { scopedClassMaker, isFunction } from '../helper/index'
 
@@ -75,8 +75,8 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
             </p>
           </main>
           <footer className={ scopedClass("footer")} >
-            <button onClick={ handleOk }>{ okText }</button>
-            <button onClick={ handleCancel }>{ cancelText }</button>
+            <Button color="primary" onClick={ handleOk }>{ okText }</Button>
+            <Button color="primary" onClick={ handleCancel }>{ cancelText }</Button>
           </footer>
         </div>
       </div>
