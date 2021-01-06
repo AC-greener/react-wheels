@@ -5,13 +5,14 @@ import IconExample from './lib/icon/icon.example';
 import DialogExample from './lib/dialog/dialog.example';
 import ButtonExample from './lib/button/button.example';
 import LayoutExample from './lib/layout/layout.example';
+import InputExample from './lib/input/input.example';
 
 ReactDOM.render(
   <Router>
     <div>
       <header>
         <div className="logo">
-          FUI
+          Fake UI
         </div>
       </header>
       <div>
@@ -30,6 +31,9 @@ ReactDOM.render(
             <li>
               <Link to="/layout">Layout</Link>
             </li>
+            <li>
+              <Link to="/input">Input</Link>
+            </li>
           </ul>
         </aside>
         <main>
@@ -37,8 +41,9 @@ ReactDOM.render(
           <Route path="/button" component={ButtonExample}/>
           <Route path="/dialog" component={DialogExample}/>
           <Route path="/layout" component={LayoutExample}/>
+          <Route path="/input" component={InputExample}/>
         </main>
       </div>
     </div>
   </Router>
-  , document.querySelector('#root'));
+  , document.querySelector('#root'))
