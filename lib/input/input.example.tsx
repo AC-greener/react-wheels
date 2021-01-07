@@ -4,7 +4,13 @@ import Input from './input'
 const InputExample = () => {
   return (
     <div>
-      <Input />
+      <div>
+        <Input variant="standard" />
+      </div>
+      <br/>
+      <div>
+        <Input variant="outlined" />
+      </div>
     </div>
   )
 }

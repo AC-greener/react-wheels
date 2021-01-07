@@ -37,11 +37,11 @@ ReactDOM.render(
           </ul>
         </aside>
         <main>
-          <Route path="/icon" component={IconExample}/>
-          <Route path="/button" component={ButtonExample}/>
-          <Route path="/dialog" component={DialogExample}/>
-          <Route path="/layout" component={LayoutExample}/>
-          <Route path="/input" component={InputExample}/>
+          <Route path="/icon" component={ IconExample }/>
+          <Route path="/button" component={ ButtonExample }/>
+          <Route path="/dialog" component={ DialogExample }/>
+          <Route path="/layout" component={ LayoutExample }/>
+          <Route path="/input" component={ InputExample }/>
         </main>
       </div>
     </div>
