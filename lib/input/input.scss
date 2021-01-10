@@ -9,7 +9,6 @@
     top: 0;
     left: 0;
     position: absolute;
-    transform: translate(0, 24px) scale(1);
     transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
     color: rgba(0, 0, 0, 0.54);
     padding: 0;
@@ -22,6 +21,7 @@
     font-size: 1rem;
     align-items: center;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
     font-weight: 400;
 
     .fake-input {
@@ -92,13 +92,44 @@
 
   &.fake-input-standard  {
     .fake-input-label {
-
+      
+      transform: translate(6px, 15px) scale(1);
     }
     .fake-input-wrapper{
       margin-top: 13px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.42);
       &:hover {
         border-bottom: 2px solid rgba(0, 0, 0, 0.82);
+      }
+      .fake-input {
+        padding: 5px 28px;
+        padding-left: 0;
+      }
+    }
+    &.fake-input-fucus {
+      .fake-input-label {
+        color: $primary-color;
+        transform: translate(-8px, -7px) scale(0.75);
+      }
+      .fake-input-wrapper {
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+    &.fake-input-hasvalue {
+      .fake-input-label {
+        transform: translate(-8px, -7px) scale(0.75);
+      }
+    }
+    &.fake-input-disabled {
+      .fake-input-label {
+        color: rgba(0, 0, 0, 0.38);
+      }
+      .fake-input-wrapper {
+        color:rgba(0, 0, 0, 0.38);
+        border-bottom:1px solid rgba(0, 0, 0, 0.38);
+      }
+      .fake-input-wrapper:hover {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.38);
       }
     }
   }
