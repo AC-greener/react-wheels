@@ -60,7 +60,7 @@
         color: $primary-color;
         background: white;
         padding: 0 5px;
-        transform: translate(8px, -10px) scale(0.75);
+        transform: translate(3px, -10px) scale(0.75);
       }
       .fake-input-wrapper{
         border: 2px solid $primary-color;
@@ -73,7 +73,19 @@
       .fake-input-label {
         background: white;
         padding: 0 5px;
-        transform: translate(8px, -10px) scale(0.75);
+        transform: translate(3px, -10px) scale(0.75);
+      }
+    }
+    &.fake-input-disabled {
+      .fake-input-label {
+        color: rgba(0, 0, 0, 0.38);
+      }
+      .fake-input-wrapper {
+        color:rgba(0, 0, 0, 0.38);
+        border:1px solid rgba(0, 0, 0, 0.38);
+      }
+      .fake-input-wrapper:hover {
+        border:1px solid rgba(0, 0, 0, 0.38);
       }
     }
   }
@@ -90,5 +102,4 @@
       }
     }
   }
-
 }
