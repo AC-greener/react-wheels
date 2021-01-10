@@ -5,11 +5,11 @@ const InputExample = () => {
   return (
     <div>
       <div>
-        <Input variant="standard" />
+        <Input variant="standard" label="Standard" />
       </div>
       <br/>
       <div>
-        <Input variant="outlined" />
+        <Input variant="outlined" label="Outlined" />
       </div>
     </div>
   )

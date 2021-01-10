@@ -1,9 +1,7 @@
 @import '../base.scss';
 
 .fake-input-root {
-  // border: 1px solid red;
   color: rgba(0, 0, 0, 0.87);
-  // width: 300px;
   cursor: text;
   display: inline-flex;
   position: relative;
@@ -13,16 +11,46 @@
     position: absolute;
     transform: translate(0, 24px) scale(1);
     transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    // transform: translate(0, 1.5px) scale(0.75);
     color: rgba(0, 0, 0, 0.54);
     padding: 0;
     font-size: 1rem;
   }
-  &.fake-input-standard .fake-input-label {
-    
+
+  &.fake-input-outlined  {
+    .fake-input-label {
+      transform: translate(14px, 14px) scale(1);
+    }
+    .fake-input-wrapper{
+      border: 1px solid rgba(0, 0, 0, 0.42);
+      border-radius: 4px;
+      & .fake-input {
+        padding: 14.5px 14px;
+      }
+    }
+    .fake-input-wrapper:hover {
+      border: 1px solid rgba(0, 0, 0, 0.82);
+    }
   }
-  &.fake-input-outlined .fake-input-label {
-    transform: translate(16px, 18px) scale(1);
+  &.fake-input-outlined.fake-input-fucus {
+    .fake-input-label {
+      color: $primary-color;
+      background: white;
+      padding: 0 5px;
+      transform: translate(8px, -10px) scale(0.75);
+    }
+    .fake-input-wrapper{
+      border: 2px solid $primary-color;
+      & .fake-input {
+        padding: 13.5px 13px;
+      }
+    }
+  }
+  &.fake-input-outlined.fake-input-hasvalue {
+    .fake-input-label {
+      background: white;
+      padding: 0 5px;
+      transform: translate(8px, -10px) scale(0.75);
+    }
   }
 
  
@@ -48,10 +76,16 @@
     }
     .fake-input:focus {
       outline: 0;
+      // color: $primary-color;
     }
     // .fake-input:focus
   }
 
+  &.fake-input-standard  {
+    .fake-input-label {
+
+    }
+  }
   &.fake-input-standard .fake-input-wrapper{
     margin-top: 13px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.42);
@@ -59,20 +93,6 @@
   }
   &.fake-input-standard .fake-input-wrapper:hover{
     border-bottom: 2px solid rgba(0, 0, 0, 0.82);
-  }
-  
-  &.fake-input-outlined .fake-input-wrapper{
-    border: 1px solid rgba(0, 0, 0, 0.42);
-    border-radius: 4px;
-    & .fake-input {
-      padding: 18.5px 14px;
-    }
-  }
-  &.fake-input-outlined .fake-input-wrapper:hover {
-    border: 1px solid rgba(0, 0, 0, 0.82);
-  }
-  &.fake-input-outlined .fake-input-wrapper:focus {
-    border: 1px solid red;
   }
 
 }
