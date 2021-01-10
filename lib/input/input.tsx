@@ -51,7 +51,7 @@ const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
     }
   })
 
-  const hanleInputChange = (e) => {
+  const hanleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e)
   }
   return (
