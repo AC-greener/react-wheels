@@ -10,6 +10,7 @@ interface inputProps extends React.HTMLAttributes<HTMLInputElement> {
   value?: string | number
   defaultValue?: string | number
   onChange?: (e: any) => void
+  size?: string
 }
 const scopedClass = scopedClassMaker('fake-input')
 const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
@@ -23,6 +24,7 @@ const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
     defaultValue,
     value,
     onChange,
+    size,
     ...restProps 
   } = props
   const labelRef = useRef<HTMLDivElement>(null)
@@ -30,7 +32,8 @@ const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
   const classResult = classes(
     scopedClass('root'),
     scopedClass(variant),
-    disabled ? scopedClass("disabled") : ''
+    disabled ? scopedClass("disabled") : '',
+    
   )
   const handleFucus = (e) => {
     onFocus && onFocus(e)
@@ -56,7 +59,7 @@ const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
   }
   return (
     <div ref={ labelRef } className={ classResult }>
-      <label className={ scopedClass("label") }  htmlFor="">{ label }</label>
+      <label className={ classes(scopedClass("label"), size? `fake-label-${size}`: '') }  htmlFor="">{ label }</label>
       <div className={scopedClass("wrapper")}>
         <input
           value= { value }
@@ -66,7 +69,7 @@ const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
           onFocus={ handleFucus }
           onBlur={ (e) => handleBlur(e) }
           onChange={ hanleInputChange }
-          className={ scopedClass() } 
+          className={ classes(scopedClass(), size? `fake-input-${size}`: '') } 
           { ...restProps } 
           type="text"
         />

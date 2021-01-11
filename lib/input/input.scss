@@ -43,6 +43,9 @@
   &.fake-input-outlined  {
     .fake-input-label {
       transform: translate(14px, 14px) scale(1);
+      &.fake-label-small {
+        transform: translate(14px, 10px) scale(1);
+      }
     }
     .fake-input-wrapper{
       border: 1px solid rgba(0, 0, 0, 0.42);
@@ -52,6 +55,9 @@
       }
       & .fake-input {
         padding: 14.5px 14px;
+        &.fake-input-small {
+          padding: 10.5px 13px;
+        }
       }
     }
   
@@ -65,7 +71,10 @@
       .fake-input-wrapper{
         border: 2px solid $primary-color;
         & .fake-input {
-          padding: 13.5px 13px;
+          padding: 13.5px 14px;
+          &.fake-input-small {
+            padding: 9.5px 13px;
+          }
         }
       }
     }
@@ -74,6 +83,9 @@
         background: white;
         padding: 0 5px;
         transform: translate(3px, -10px) scale(0.75);
+        &.fake-label-small {
+          transform: translate(5px, -7px) scale(0.75);
+        }
       }
     }
     &.fake-input-disabled {
@@ -92,18 +104,25 @@
 
   &.fake-input-standard  {
     .fake-input-label {
-      
       transform: translate(6px, 15px) scale(1);
+      &.fake-label-small {
+        transform: translate(1px, 15px) scale(1);
+      }
     }
+    
     .fake-input-wrapper{
       margin-top: 13px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.42);
       &:hover {
         border-bottom: 2px solid rgba(0, 0, 0, 0.82);
       }
-      .fake-input {
+      & .fake-input {
         padding: 5px 28px;
         padding-left: 0;
+        &.fake-input-small {
+          padding: 3px 28px;
+          padding-left: 0;
+        }
       }
     }
     &.fake-input-fucus {
@@ -118,7 +137,11 @@
     &.fake-input-hasvalue {
       .fake-input-label {
         transform: translate(-8px, -7px) scale(0.75);
+        &.fake-label-small {
+          transform: translate(-3px, -7px) scale(0.75);
+        }
       }
+
     }
     &.fake-input-disabled {
       .fake-input-label {
