@@ -49,7 +49,7 @@ const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
     }
   }
   useEffect(() => {
-    if(defaultValue) {
+    if(defaultValue || value) {
       labelRef.current!.classList.add('fake-input-hasvalue')
     }
   })
