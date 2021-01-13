@@ -6,6 +6,7 @@ import DialogExample from './lib/dialog/dialog.example';
 import ButtonExample from './lib/button/button.example';
 import LayoutExample from './lib/layout/layout.example';
 import InputExample from './lib/input/input.example';
+import CollapseExample from './lib/collapse/collapse.example';
 
 ReactDOM.render(
   <Router>
@@ -34,6 +35,9 @@ ReactDOM.render(
             <li>
               <Link to="/input">Input</Link>
             </li>
+            <li>
+              <Link to="/collapse">Collapse</Link>
+            </li>
           </ul>
         </aside>
         <main>
@@ -42,6 +46,7 @@ ReactDOM.render(
           <Route path="/dialog" component={ DialogExample }/>
           <Route path="/layout" component={ LayoutExample }/>
           <Route path="/input" component={ InputExample }/>
+          <Route path="/collapse" component={ CollapseExample }/>
         </main>
       </div>
     </div>
