@@ -21,7 +21,6 @@
       color: rgba(0,0,0,.85);
       line-height: 1.5715;
       cursor: pointer;
-      transition: all .3s;
       background-color: rgb(250, 250, 250);
     }
     >.fake-collapse-content {
@@ -31,7 +30,6 @@
       border-top: 1px solid #d9d9d9;
       display: none;
       height: 0;
-      transition: 12s all;
     }
     >.fake-collapse-content.fake-collapse-content-active {
       display: block;
