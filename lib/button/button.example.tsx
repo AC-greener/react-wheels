@@ -68,7 +68,7 @@ const ButtonExample: React.FunctionComponent = () => {
           size="small">wechat</Button>
              <Button 
           icon={<Icon name='wechat'/>} 
-          iconPosition='left'
+          iconposition='left'
           type="contained" 
           color="primary" 
           size="default">wechat</Button>

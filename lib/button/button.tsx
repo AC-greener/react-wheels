@@ -9,7 +9,7 @@ interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
   size?: string
   icon?: ReactNode
-  iconPosition?: string
+  iconposition?: string
 }
 const scopedClass = scopedClassMaker('fake-button')
 const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
@@ -48,7 +48,7 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
   }
   const Span = () => {
     if(props.icon) {
-      if(props.iconPosition === 'left') {
+      if(props.iconposition === 'left') {
         return <Fragment>
           <span className='icon-left'>{props.icon}</span>
           <span>{ props.children }</span>
@@ -78,7 +78,7 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
 Icon.defaultProps = {
   type: 'text',
   size: 'default',
-  iconPosition: 'right'
+  iconposition: 'right'
 }
 
 

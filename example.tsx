@@ -8,17 +8,17 @@ import LayoutExample from './lib/layout/layout.example';
 import InputExample from './lib/input/input.example';
 import CollapseExample from './lib/collapse/collapse.example';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
+import './example.scss'
 ReactDOM.render(
   <Router>
-    <Layout style={{height: 200, width: 500}}>
-      <Header>
+    <Layout className='site-layout'>
+      <Header className='site-header'>
         <div className="logo">
           Fake UI
         </div>
       </Header>
       <Layout>
-        <Aside >
-        <aside>
+        <Aside className='site-aside'>
           <h2>组件</h2>
           <ul>
             <li>
@@ -40,9 +40,8 @@ ReactDOM.render(
               <Link to="/collapse">Collapse</Link>
             </li>
           </ul>
-        </aside>
         </Aside>
-        <Content >        
+        <Content className='site-content'>        
           <Route path="/icon" component={ IconExample }/>
           <Route path="/button" component={ ButtonExample }/>
           <Route path="/dialog" component={ DialogExample }/>
@@ -51,7 +50,7 @@ ReactDOM.render(
           <Route path="/collapse" component={ CollapseExample }/>
         </Content>
       </Layout>
-      <Footer >footer</Footer>
+      <Footer></Footer>
     </Layout>
   </Router>
   , document.querySelector('#root'))

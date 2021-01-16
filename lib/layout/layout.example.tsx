@@ -39,8 +39,6 @@ export default function () {
           <Footer className="x">footer</Footer>
         </Layout>
       </div>
-      
-
       <div>
         <h1>第四个例子</h1>
         <Layout style={{height: 200, width: 500}}>
