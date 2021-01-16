@@ -1,6 +1,7 @@
 import React from 'react'
 import './collapse.scss'
 import classes from '../helper/classes'
+import { Icon } from '../index'
 interface panelProps extends React.HTMLAttributes<HTMLDivElement> {
   activeKey: string
   header: string
@@ -18,6 +19,9 @@ const Panel: React.FunctionComponent<panelProps> = (props: panelProps) => {
   return (
     <div className="fake-collapse-item" { ...restProps }>
       <div className="fake-collapse-header" onClick={ handleHeaderClick }>
+        <span className={ classes(defaultActiveKey?.includes(activeKey)? 'fake-collapse-icon-active' : '') }>
+          <Icon name='collapse' style={{fontSize: '26px'}} />
+        </span>
         { header }
       </div>
       <div className={ classes(
