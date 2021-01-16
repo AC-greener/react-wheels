@@ -3,15 +3,18 @@ import React from 'react'
 import Collapse from './collapse'
 import Panel from './panel'
 const CollapseExample = () => {
+  const handleClick = (keys) => {
+    console.log(keys)
+  }
   return (
-    <Collapse defaultActiveKey={['1']}>
-      <Panel header="This is panel header 1" key="1">
+    <Collapse defaultActiveKey={['2']} onClick={ handleClick }>
+      <Panel header="This is panel header 1" activeKey="1">
         <p>111</p>
       </Panel>
-      <Panel header="This is panel header 2" key="2">
+      <Panel header="This is panel header 2" activeKey="2">
         <p>222</p>
       </Panel>
-      <Panel header="This is panel header 3" key="3">
+      <Panel header="This is panel header 3" activeKey="3">
         <p>333</p>
       </Panel>
     </Collapse>
