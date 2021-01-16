@@ -12,7 +12,7 @@ const Panel: React.FunctionComponent<panelProps> = (props: panelProps) => {
   const { header, defaultActiveKey, activeKey, headerAction, ...restProps } = props
   const handleHeaderClick: React.MouseEventHandler = (e) => {
     // 吧自己的key通知给父组件
-    console.log('发射headerAction')
+    // console.log('发射headerAction')
     headerAction && headerAction('COLLAPSE_ACTION', activeKey)
   }
   return (
@@ -24,9 +24,7 @@ const Panel: React.FunctionComponent<panelProps> = (props: panelProps) => {
         "fake-collapse-content",
         defaultActiveKey?.includes(activeKey)? 'fake-collapse-content-active' : ''
       )}>
-        {
-          props.children
-        }
+        { props.children }
       </div>
     </div>
   )
