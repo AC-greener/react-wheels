@@ -2,7 +2,7 @@ import IconExample from './icon.example';
 import React, {Fragment} from 'react';
 import Demo from '../../demo';
 
-console.log('test')
+console.log('test 111')
 const IconDemo = () => {
   return (
     <Fragment>
