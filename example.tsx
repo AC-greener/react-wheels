@@ -7,6 +7,7 @@ import ButtonExample from './lib/button/button.example';
 import LayoutExample from './lib/layout/layout.example';
 import InputExample from './lib/input/input.example';
 import CollapseExample from './lib/collapse/collapse.example';
+import GridExample from './lib/grid/grid.example';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
 import './example.scss'
 ReactDOM.render(
@@ -39,6 +40,9 @@ ReactDOM.render(
             <li>
               <Link to="/collapse">Collapse</Link>
             </li>
+            <li>
+              <Link to="/grid">Grid</Link>
+            </li>
           </ul>
         </Aside>
         <Content className='site-content'>        
@@ -48,6 +52,7 @@ ReactDOM.render(
           <Route path="/layout" component={ LayoutExample }/>
           <Route path="/input" component={ InputExample }/>
           <Route path="/collapse" component={ CollapseExample }/>
+          <Route path="/grid" component={ GridExample }/>
         </Content>
       </Layout>
       <Footer></Footer>
