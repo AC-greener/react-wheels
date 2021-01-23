@@ -1,4 +1,4 @@
-* {margin: 0;padding: 0; box-sizing: border-box;}
+* {margin: 0;padding: 0; box-sizing: border-box; }
 *::before {box-sizing: border-box;}
 *::after {box-sizing: border-box;}
 ul, ol {list-style: none;}
@@ -68,6 +68,8 @@ pre {
 .site-content {
   height: calc(100vh - 37px);
   overflow: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .site-footer {
   text-align: center;
