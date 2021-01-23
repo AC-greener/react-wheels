@@ -1,7 +1,9 @@
 import * as React from 'react';
 import Highlight, {defaultProps} from "prism-react-renderer";
 import {useState} from 'react';
-
+// import theme from "prism-react-renderer/themes/nightOwl"
+import vsDark from 'prism-react-renderer/themes/vsDark'
+import  Button from './lib/button/button'
 interface Props {
   code: string;
 }
@@ -9,7 +11,7 @@ interface Props {
 const Demo: React.FunctionComponent<Props> = (props) => {
   const [codeVisible, setCodeVisible] = useState(false);
   const code = (
-    <Highlight {...defaultProps} code={props.code} language="jsx">
+    <Highlight {...defaultProps} theme={vsDark} code={props.code} language="jsx">
       {({className, style, tokens, getLineProps, getTokenProps}) => (
         <pre className={className} style={style}>
               {tokens.map((line, i) => (
@@ -29,7 +31,7 @@ const Demo: React.FunctionComponent<Props> = (props) => {
         {props.children}
       </div>
       <div>
-        <button onClick={() => setCodeVisible(!codeVisible)}>查看代码2</button>
+        <Button type='contained' color='primary' onClick={() => setCodeVisible(!codeVisible)}>查看代码</Button>
         {codeVisible && code}
       </div>
     </div>

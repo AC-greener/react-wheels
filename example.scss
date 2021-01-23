@@ -2,7 +2,7 @@
 *::before {box-sizing: border-box;}
 *::after {box-sizing: border-box;}
 ul, ol {list-style: none;}
-h1, h2, h3, h4, h5, h6 {font-weight: normal;}
+h1, h2, h3, h4, h5, h6 {font-weight: normal; margin: 10px 0;}
 a { text-decoration: none; color: inherit; }
 pre {
   font-family: "Fira Code Medium", Consolas, monospace;
@@ -34,7 +34,12 @@ body {
     }
   }
 }
+pre {
+  padding: 20px;
+  margin: 10px 20px 10px 0px;
+}
 .site-aside {
+  height: calc(100vh - 37px);
   border-right: 1px solid #EEEEEE;
   margin-right: 16px;
   h2 {
