@@ -28,6 +28,7 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
     createRipple(e)
     onClick && onClick(e)
   }
+  
   const createRipple = (event) => {
     const button = event.currentTarget;
     const circle = document.createElement("span");
@@ -47,6 +48,7 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
 
     button.appendChild(circle);
   }
+
   const Span = () => {
     if(props.icon) {
       if(props.iconposition === 'left') {
