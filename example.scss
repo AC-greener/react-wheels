@@ -39,6 +39,7 @@ pre {
   margin: 10px 20px 10px 0px;
 }
 .site-aside {
+  width: 200px;
   height: calc(100vh - 37px);
   border-right: 1px solid #EEEEEE;
   margin-right: 16px;
@@ -63,6 +64,10 @@ pre {
       }
     }
   }
+}
+.site-content {
+  height: calc(100vh - 37px);
+  overflow: auto;
 }
 .site-footer {
   text-align: center;

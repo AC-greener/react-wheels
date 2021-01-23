@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Dialog, { alert } from './dialog';
+import Dialog from './dialog';
 import { Button } from '../index'
 const DialogExample: React.FunctionComponent = () => {
   const [visible, setVisible] =  useState(false)
@@ -18,8 +18,8 @@ const DialogExample: React.FunctionComponent = () => {
 
   return (
     <div>
+      <h3>使用dialog组件</h3>
       <Button type='contained' color='rose' onClick={ () => setVisible(true)}>打开dialog</Button>
-      <Button type='contained' color='rose' onClick={ () => alert({content: 'hello world', title: '2020'})}>一句话打开dialog</Button>
       <Dialog
         className='a b'
         title="Use Google's location service?"
