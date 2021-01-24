@@ -2,6 +2,7 @@ import React from 'react'
 import './toast.scss'
 import classes from '../helper/classes'
 import { Icon } from '../index'
+
 interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   visible: boolean
   message?: string

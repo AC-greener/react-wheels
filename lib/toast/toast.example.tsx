@@ -59,7 +59,7 @@ const ToastExample = () => {
 
         <Toast 
           visible={ visible } 
-          message="Note archived" 
+          message="I love toast" 
           onClose={ handleClose }         
           anchorOrigin={{
             vertical,
