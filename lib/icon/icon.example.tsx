@@ -3,18 +3,14 @@ import Icon from './icon';
 
 const IconExample: React.FunctionComponent = () => {
   return (
-    <div>
+    <div >
+      <h3>设置不同的color</h3>
       <Icon name="wechat"/>
       <Icon color="primary" name="wechat"/>
       <Icon color="secondary" name="wechat"/>
       <Icon color="action" name="wechat"/>
       <Icon color="disabled" name="wechat"/>
       <Icon style={{ color: 'green' }} name="wechat"/>
-      <h3>size</h3>
-      <Icon fontSize="small" name="wechat"/>
-      <Icon name="wechat"/>
-      <Icon fontSize="large" name="wechat"/>
-      <Icon style={{ fontSize: '41px', color: 'red' }} name="wechat"/>
     </div>
   );
 };

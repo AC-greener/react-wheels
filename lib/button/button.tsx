@@ -13,7 +13,7 @@ interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
 }
 const scopedClass = scopedClassMaker('fake-button')
 const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
-  const { className, color, type, disabled, size, icon, ...restProps } = props
+  const { className, color, type, disabled, size, icon, onClick, ...restProps } = props
   const classResult = classes(
     scopedClass(),
     'fake-icon-end',
@@ -26,7 +26,9 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
   )
   const handleBtnClick = (e) => {
     createRipple(e)
+    onClick && onClick(e)
   }
+  
   const createRipple = (event) => {
     const button = event.currentTarget;
     const circle = document.createElement("span");
@@ -46,6 +48,7 @@ const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
 
     button.appendChild(circle);
   }
+
   const Span = () => {
     if(props.icon) {
       if(props.iconposition === 'left') {
