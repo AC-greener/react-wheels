@@ -9,6 +9,7 @@ import InputExample from './lib/input/input.example';
 import CollapseExample from './lib/collapse/collapse.example';
 import GridExample from './lib/grid/grid.example';
 import ToastExample from './lib/toast/toast.example';
+import UploaderExample from './lib/uploader/uploader.example';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
 import './example.scss'
 ReactDOM.render(
@@ -43,7 +44,12 @@ ReactDOM.render(
             </li>
             <li>
               <Link to="/grid">Grid</Link>
+            </li>
+            <li>
               <Link to="/toast">Toast</Link>
+            </li>
+            <li>
+              <Link to="/uploader">uploader</Link>
             </li>
           </ul>
         </Aside>
@@ -56,6 +62,7 @@ ReactDOM.render(
           <Route path="/collapse" component={ CollapseExample }/>
           <Route path="/grid" component={ GridExample }/>
           <Route path="/toast" component={ ToastExample }/>
+          <Route path="/uploader" component={ UploaderExample }/>
         </Content>
       </Layout>
       <Footer></Footer>
