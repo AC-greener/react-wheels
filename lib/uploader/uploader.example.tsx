@@ -2,6 +2,14 @@ import React from 'react'
 import Uploader from './uploader'
 const UploaderExample = () => {
   const handleChange = (file) => {
+    if(file.status === 'uploading') {
+      console.log('uploading')
+    }
+    if(file.status === 'done') {
+      console.log('done')
+    } else if(file.status === 'error') {
+      console.log('error')
+    }
   }
   return (
     <div>
@@ -12,6 +20,7 @@ const UploaderExample = () => {
           {'authorization': 'authorization-text'}
         }
         onChange={ handleChange }
+        withCredentials={ true }
       />
     </div>
   )

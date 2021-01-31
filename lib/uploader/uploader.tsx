@@ -1,17 +1,16 @@
 import classes from '../helper/classes'
-import React, { ReactEventHandler, useRef, useState } from 'react'
+import React, { ReactEventHandler, useRef } from 'react'
 import './uploader.scss'
 
 interface UploaderProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string
   action: string
-  headers?: {
-    authorization: string,
-  }
+  headers?: {}
   method?: string
   onChange?:(object) => void
+  withCredentials?: boolean
 }
-
+ 
 const createFormData = (name: string, file): FormData => {
   const formData = new FormData()
   formData.append(name, file)
@@ -19,9 +18,18 @@ const createFormData = (name: string, file): FormData => {
 }
 
 const Uploader: React.FunctionComponent<UploaderProps> = (props) => {
-  const { className, name, onClick, method, action, headers, onChange, ...restProps} = props
+  const { 
+    className, 
+    name,
+    onClick,
+    method,
+    action, 
+    headers, 
+    onChange,
+    withCredentials, 
+    ...restProps
+  } = props
   const inputElementRef = useRef<HTMLInputElement>(null)
-  const [file, setFile] = useState(null)
   const cname = classes(
     "fake-uploader-root",
     className
@@ -33,31 +41,28 @@ const Uploader: React.FunctionComponent<UploaderProps> = (props) => {
     // status: uploading done error removed
     const file = (e.target as any).files[0]
     file.status = "uploading"
-    setFile(file)
     onChange && onChange(file)
-    uploadFile()
+    uploadFile(file)
       .then(res => {
-        setFile({
-          ...file,
-          status: 'done'
-        })
-        console.log(res)
+        file.status = 'done'
+        onChange && onChange(file)
       })
       .catch(err => {
-        setFile({
-          ...file,
-          status: 'error'
-        })
-        console.log(err)
+        file.status = 'error'
+        onChange && onChange(file)
       })
   }
 
-  const uploadFile = () => {
-    return fetch(action, {
+  const uploadFile = (file) => {
+    const options: any = {
       method,
       body: createFormData(name, file),
-      headers: new Headers(headers)
-    })
+      headers: new Headers(headers),
+    }
+    if(withCredentials) {
+      options.credentials = 'include'
+    }
+    return fetch(action, options)
   }
 
   return (
@@ -76,7 +81,9 @@ const Uploader: React.FunctionComponent<UploaderProps> = (props) => {
   )
 }
 Uploader.defaultProps = {
-  method: 'post'
+  method: 'post',
+  withCredentials: false,
+  headers: {}
 }
 
 export default Uploader
