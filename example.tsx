@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import IconExample from './lib/icon/icon.demo';
 import ButtonExample from './lib/button/button.demo';
 import DialogExample from './lib/dialog/dialog.demo';
+import TreeExample from './lib/tree/tree.demo'
 import LayoutExample from './lib/layout/layout.example';
 import InputExample from './lib/input/input.example';
 import CollapseExample from './lib/collapse/collapse.example';
@@ -51,6 +52,9 @@ ReactDOM.render(
             <li>
               <Link to="/uploader">uploader</Link>
             </li>
+            <li>
+              <Link to="/tree">tree</Link>
+            </li>
           </ul>
         </Aside>
         <Content className='site-content'>        
@@ -63,6 +67,7 @@ ReactDOM.render(
           <Route path="/grid" component={ GridExample }/>
           <Route path="/toast" component={ ToastExample }/>
           <Route path="/uploader" component={ UploaderExample }/>
+          <Route path="/tree" component={ TreeExample }/>
         </Content>
       </Layout>
       <Footer></Footer>
