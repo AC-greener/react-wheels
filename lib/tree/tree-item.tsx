@@ -74,8 +74,7 @@ const TreeItem: React.FC<Props> = (props) => {
     }
   })
 
-  const handleAddButtonClick = (item: SourceDataItem) => {
-    const clickedTree = {...item}
+  const handleAddButtonClick = (clickedTree: SourceDataItem) => {
     const v = (Math.random() * 10).toFixed(1) + ''
     clickedTree.children?.push({
       text:  v,
@@ -88,7 +87,8 @@ const TreeItem: React.FC<Props> = (props) => {
       const length = sourceData.length
       for(let i = 0 ; i < length; i++) {
         if(sourceData.indexOf(clickedTree) !== -1) {
-          sourceData.splice(sourceData.indexOf(item), 1, clickedTree)
+          sourceData.splice(sourceData.indexOf(clickedTree), 1, clickedTree)
+          return
         } else {
           sourceData[i].children && insertValue2Tree(sourceData[i].children)
         }
@@ -97,6 +97,23 @@ const TreeItem: React.FC<Props> = (props) => {
     console.log('sourceData', sourceData)
 
     treeProps.onAdd(sourceData)
+  }
+  function handleDeleteButtonClick(clickedTree: SourceDataItem) {
+    const sourceData = [...treeProps.sourceData]
+    deleteValue2Tree(sourceData)
+    function deleteValue2Tree(sourceData) {
+      const length = sourceData.length
+      for(let i = 0 ; i < length; i++) {
+        if(sourceData.indexOf(clickedTree) !== -1) {
+          sourceData.splice(sourceData.indexOf(clickedTree), 1)
+          return
+        } else {
+          sourceData[i].children && deleteValue2Tree(sourceData[i].children)
+        }
+      }
+    }
+    treeProps.onAdd(sourceData)
+    console.log('sourceData', sourceData)
   }
 
   return <div key={item.value} className={classesResult}>
@@ -114,8 +131,10 @@ const TreeItem: React.FC<Props> = (props) => {
         {item.children &&
           <span className='btn'>
             <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={() => handleAddButtonClick(item)}/>
+            <Icon name='delete' style={{ color: '#006BFF' }} className='button-add'  onClick={() => handleDeleteButtonClick(item)}/>
           </span>
         }
+        {/* <Icon name='delete' style={{ color: '#006BFF' }} className='button-add'  onClick={() => handleDeleteButtonClick(item)}/> */}
       </div>
     </div>
     <div ref={divRef} className={classesResult2}>
