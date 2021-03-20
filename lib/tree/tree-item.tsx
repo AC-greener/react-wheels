@@ -1,4 +1,5 @@
 import React, {ChangeEventHandler, useState, useRef} from 'react';
+import Icon from '../icon/icon'
 import { scopedClassMaker } from '../helper'
 import classes from '../helper/classes'
 import useUpdate from './useUpdate'
@@ -41,48 +42,84 @@ const TreeItem: React.FC<Props> = (props) => {
     }
   }
 
-  const expand = () => {
-    setExpanded(true)
-  };
 
-  const collapse = () => {
-    setExpanded(false)
+
+  const handleArrowClick = () => {
+    if(expanded) {
+      console.log('关闭')
+      setExpanded(false)
+    } else {
+      console.log('打开')
+      setExpanded(true)
+    }
   }
+
   const divRef = useRef<HTMLDivElement>(null)
-  
+
   useUpdate(expanded, () => {
     if (!divRef.current) return
     if (expanded) {
-      divRef.current.style.height = 'auto'
-      const {height} = divRef.current.getBoundingClientRect()
-      divRef.current.style.position = ''
-      divRef.current.style.opacity = ''
-      divRef.current.style.height = '0px';
-      divRef.current.getBoundingClientRect()
-      divRef.current.style.height = height + 'px'
+      // divRef.current.style.height = 'auto'
+      // const {height} = divRef.current.getBoundingClientRect()
+      // divRef.current.style.position = ''
+      // divRef.current.style.opacity = ''
+      // divRef.current.style.height = '0px';
+      // divRef.current.getBoundingClientRect()
+      // divRef.current.style.height = height + 'px'
     } else {
-      const {height} = divRef.current.getBoundingClientRect();
-      divRef.current.style.height = height + 'px'
-      divRef.current.getBoundingClientRect()
-      divRef.current.style.height = '0px'
+      // const {height} = divRef.current.getBoundingClientRect();
+      // divRef.current.style.height = height + 'px'
+      // divRef.current.getBoundingClientRect()
+      // divRef.current.style.height = '0px'
     }
   })
 
+  const handleAddButtonClick = (item: SourceDataItem) => {
+    const clickedTree = {...item}
+    const v = (Math.random() * 10).toFixed(1) + ''
+    clickedTree.children?.push({
+      text:  v,
+      value: v
+    })
+    const sourceData = [...treeProps.sourceData]
+
+    insertValue2Tree(sourceData)
+    function insertValue2Tree(sourceData) {
+      const length = sourceData.length
+      for(let i = 0 ; i < length; i++) {
+        if(sourceData.indexOf(clickedTree) !== -1) {
+          sourceData.splice(sourceData.indexOf(item), 1, clickedTree)
+        } else {
+          sourceData[i].children && insertValue2Tree(sourceData[i].children)
+        }
+      }
+    }
+    console.log('sourceData', sourceData)
+
+    treeProps.onAdd(sourceData)
+  }
+
   return <div key={item.value} className={classesResult}>
     <div className={scopedClass('text')}>
-      <input type="checkbox" onChange={onChange} checked={checked}/>
-      {item.text}
-      {item.children &&
-      <span >
-          {expanded ?
-            <span onClick={collapse}>-</span> :
-            <span onClick={expand}>+</span>
-          }
-        </span>
-      }
+      <div className={classes('arrow', expanded ? 'opened' : '')}> 
+        {/* <input type="checkbox" onChange={onChange} checked={checked}/> */}
+        {
+          item.children ?  
+            <Icon name='arrow'  onClick={handleArrowClick}/> : 
+            <div style={{width:'14px'}}></div>
+        }
+      </div>
+      <div className='content' onSelect={(e) => e.preventDefault()}>
+        <span >{item.text}</span>
+        {item.children &&
+          <span className='btn'>
+            <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={() => handleAddButtonClick(item)}/>
+          </span>
+        }
+      </div>
     </div>
     <div ref={divRef} className={classesResult2}>
-      {item.children?.map(sub =>
+      {item.children?.map((sub, index) =>
         <TreeItem key={sub.value} item={sub} level={level + 1} treeProps={treeProps}/>
       )}
     </div>

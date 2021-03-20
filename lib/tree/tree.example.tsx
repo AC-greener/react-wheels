@@ -1,14 +1,23 @@
 import React, {useState} from 'react';
 import Tree from './tree';
 const TreeExample: React.FC = (props) => {
-  const [array] = useState([{
+  const [array, setArray] = useState([{
     text: '1',
     value: '1',
     children: [
       {
         text: '1.1', value: '1.1',
         children: [
-          {text: '1.1.1', value: '1.1.1'},
+          {text: '1.1.1', value: '1.1.1' , 
+            children: [
+              {
+                text: '1.1.1.1', value: '1.1.1.1'
+              },
+              {
+                text: '1.1.1.2', value: '1.1.1.2'
+              },
+            ]}
+          ,
           {text: '1.1.2', value: '1.1.2'},
         ]
       },
@@ -23,7 +32,10 @@ const TreeExample: React.FC = (props) => {
     ]
   }]);
   const [selectedValue, setSelectedValue] = useState('11');
-
+  const handleAdd = (value) => {
+    console.log('add111', value)
+    setArray(value)
+  }
   return (
     <div>Tree
       <h1>展示数据</h1>
@@ -31,6 +43,7 @@ const TreeExample: React.FC = (props) => {
       <div style={{width: 200}}>
         <Tree 
           sourceData={array}
+          onAdd={handleAdd}
           selected={selectedValue}
           onChange={(value: string) => setSelectedValue(value)}
         />

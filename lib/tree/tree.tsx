@@ -5,7 +5,7 @@ import TreeItem from './tree-item';
 const Tree: React.FC<TreeProps> = (props) => {
   return (
     <div>
-      {props.sourceData?.map(item =>
+      {props.sourceData?.map((item, index) =>
         <TreeItem key={item.value} treeProps={props} item={item} level={1}/>
       )}
     </div>

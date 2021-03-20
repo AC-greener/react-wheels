@@ -6,6 +6,7 @@ interface SourceDataItem {
 
 type TreeProps = {
   sourceData: SourceDataItem[],
+  onAdd: (value: SourceDataItem[]) => void
 } & ({
   multiple: true,
   selected: string[],
