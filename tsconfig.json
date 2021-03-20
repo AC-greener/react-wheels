@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": ["es5", "esnext", "ES2016" ,"dom"],
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",

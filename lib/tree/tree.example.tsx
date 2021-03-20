@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Tree from './tree';
-
 const TreeExample: React.FC = (props) => {
   const [array] = useState([{
     text: '1',
@@ -23,12 +22,20 @@ const TreeExample: React.FC = (props) => {
       {text: '2.2', value: '2.2'},
     ]
   }]);
+  const [selectedValue, setSelectedValue] = useState('11');
+
   return (
     <div>Tree
       <h1>展示数据</h1>
-      <Tree sourceData={array}/>
+      {selectedValue}
+      <div style={{width: 200}}>
+        <Tree 
+          sourceData={array}
+          selected={selectedValue}
+          onChange={(value: string) => setSelectedValue(value)}
+        />
+      </div>
     </div>
   );
 };
-
 export default TreeExample;
