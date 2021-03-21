@@ -4,7 +4,7 @@ import { scopedClassMaker } from '../helper'
 import classes from '../helper/classes'
 import useUpdate from './useUpdate'
 
-interface Props {
+interface TreeItemProps {
   item: SourceDataItem
   level: number
   treeProps: TreeProps
@@ -14,7 +14,7 @@ type operator = 'add' | 'delete'
 
 const scopedClass = scopedClassMaker('fui-tree')
 
-const TreeItem: React.FC<Props> = (props) => {
+const TreeItem: React.FC<TreeItemProps> = (props) => {
   const {item, level, treeProps} = props
   const [expanded, setExpanded] = useState(true)
 
@@ -27,7 +27,6 @@ const TreeItem: React.FC<Props> = (props) => {
     expanded ?  '' : scopedClass('collapsed'),
   )
 
-  const checked = treeProps.selected.indexOf(item.value) >= 0 
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (treeProps.multiple) {
       if (e.target.checked) {
@@ -48,23 +47,27 @@ const TreeItem: React.FC<Props> = (props) => {
     }
   }
 
-  const divRef = useRef<HTMLDivElement>(null)
+  const treeChildRef = useRef<HTMLDivElement>(null)
 
   useUpdate(expanded, () => {
-    if (!divRef.current) return
+    const element = treeChildRef.current
+    if (!element) return
     if (expanded) {
-      // divRef.current.style.height = 'auto'
-      // const {height} = divRef.current.getBoundingClientRect()
-      // divRef.current.style.position = ''
-      // divRef.current.style.opacity = ''
-      // divRef.current.style.height = '0px';
-      // divRef.current.getBoundingClientRect()
-      // divRef.current.style.height = height + 'px'
+      element.style.height = 'auto'
+      const { height } = element.getBoundingClientRect()
+      element.style.height = '0px'
+      element.getBoundingClientRect()
+      element.style.height = height + 'px'
+      const afterExpand = () => {
+        element.style.height = ''
+        element.removeEventListener('transitionend', afterExpand)
+      }
+      element.addEventListener('transitionend', afterExpand)
     } else {
-      // const {height} = divRef.current.getBoundingClientRect();
-      // divRef.current.style.height = height + 'px'
-      // divRef.current.getBoundingClientRect()
-      // divRef.current.style.height = '0px'
+      const { height } = element.getBoundingClientRect()
+      element.style.height = height + 'px'
+      element.getBoundingClientRect()
+      element.style.height = '0px'
     }
   })
 
@@ -99,6 +102,7 @@ const TreeItem: React.FC<Props> = (props) => {
 
   return <div key={item.value} className={classesResult}>
     <div className={scopedClass('text')}>
+      {/* <input type="checkbox" onChange={onChange} checked={treeProps.selected.indexOf(item.value) >= 0 }/> */}
       <div className={classes('arrow', expanded ? 'opened' : '')}> 
         {
           item.children ?  
@@ -116,7 +120,7 @@ const TreeItem: React.FC<Props> = (props) => {
         }
       </div>
     </div>
-    <div ref={divRef} className={classesResult2}>
+    <div ref={treeChildRef} className={classesResult2}>
       {item.children?.map(sub =>
         <TreeItem key={sub.value} item={sub} level={level + 1} treeProps={treeProps}/>
       )}
