@@ -31,9 +31,8 @@ const TreeExample: React.FC = (props) => {
       {text: '2.2', value: '2.2'},
     ]
   }]);
-  const [selectedValue, setSelectedValue] = useState('11');
+  const [selectedValue, setSelectedValue] = useState(['1', '2']);
   const handleAdd = (value) => {
-    console.log('add111', value)
     setArray(value)
   }
   return (
@@ -43,9 +42,10 @@ const TreeExample: React.FC = (props) => {
       <div style={{width: 200}}>
         <Tree 
           sourceData={array}
-          onAdd={handleAdd}
+          onSourceDataUpdate={handleAdd}
           selected={selectedValue}
-          onChange={(value: string) => setSelectedValue(value)}
+          multiple={true}
+          onChange={(value: string[]) => setSelectedValue(value)}
         />
       </div>
     </div>

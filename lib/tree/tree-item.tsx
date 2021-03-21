@@ -1,19 +1,22 @@
-import React, {ChangeEventHandler, useState, useRef} from 'react';
+import React, { ChangeEventHandler,useState, useRef} from 'react'
 import Icon from '../icon/icon'
 import { scopedClassMaker } from '../helper'
 import classes from '../helper/classes'
 import useUpdate from './useUpdate'
+
 interface Props {
   item: SourceDataItem
   level: number
   treeProps: TreeProps
 }
 
-const scopedClass = scopedClassMaker('fui-tree');
+type operator = 'add' | 'delete'
+
+const scopedClass = scopedClassMaker('fui-tree')
 
 const TreeItem: React.FC<Props> = (props) => {
-  const {item, level, treeProps} = props;
-  const [expanded, setExpanded] = useState(true);
+  const {item, level, treeProps} = props
+  const [expanded, setExpanded] = useState(true)
 
   const classesResult = classes(
     scopedClass('level-' + level),
@@ -23,26 +26,17 @@ const TreeItem: React.FC<Props> = (props) => {
     scopedClass('children'),
     expanded ?  '' : scopedClass('collapsed'),
   )
-  const checked = treeProps.multiple ?
-    treeProps.selected.indexOf(item.value) >= 0 :
-    treeProps.selected === item.value;
-  const onChange: ChangeEventHandler<{ checked: boolean }> = (e) => {
+
+  const checked = treeProps.selected.indexOf(item.value) >= 0 
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (treeProps.multiple) {
       if (e.target.checked) {
-        treeProps.onChange([...treeProps.selected, item.value]);
+        treeProps.onChange([...treeProps.selected, item.value])
       } else {
-        treeProps.onChange(treeProps.selected.filter(value => value !== item.value));
-      }
-    } else {
-      if (e.target.checked) {
-        treeProps.onChange(item.value);
-      } else {
-        treeProps.onChange('');
+        treeProps.onChange(treeProps.selected.filter(value => value !== item.value))
       }
     }
-  }
-
-
+  };
 
   const handleArrowClick = () => {
     if(expanded) {
@@ -74,52 +68,38 @@ const TreeItem: React.FC<Props> = (props) => {
     }
   })
 
-  const handleAddButtonClick = (clickedTree: SourceDataItem) => {
-    const v = (Math.random() * 10).toFixed(1) + ''
-    clickedTree.children?.push({
-      text:  v,
-      value: v
-    })
-    const sourceData = [...treeProps.sourceData]
-
-    insertValue2Tree(sourceData)
-    function insertValue2Tree(sourceData) {
-      const length = sourceData.length
-      for(let i = 0 ; i < length; i++) {
-        if(sourceData.indexOf(clickedTree) !== -1) {
-          sourceData.splice(sourceData.indexOf(clickedTree), 1, clickedTree)
-          return
-        } else {
-          sourceData[i].children && insertValue2Tree(sourceData[i].children)
+  const handleAddOrDeleteButtonClick = (clickedTree: SourceDataItem, operator: operator) => {
+      const v = (Math.random() * 10).toFixed(1) + ''
+      clickedTree.children?.push({
+        text:  v,
+        value: v
+      })
+      const sourceData = [...treeProps.sourceData]
+  
+      updateTreeValue(sourceData)
+      function updateTreeValue(sourceData) {
+        const length = sourceData.length
+        for(let i = 0; i < length; i++) {
+          const index = sourceData.indexOf(clickedTree)
+          if(index !== -1) {
+            if(operator === 'add') {
+              sourceData.splice(index, 1, clickedTree)
+            } else {
+              sourceData.splice(index, 1)
+            }
+            return
+          } else {
+            sourceData[i].children && updateTreeValue(sourceData[i].children)
+          }
         }
       }
-    }
-    console.log('sourceData', sourceData)
+      treeProps.onSourceDataUpdate(sourceData)
+  }
 
-    treeProps.onAdd(sourceData)
-  }
-  function handleDeleteButtonClick(clickedTree: SourceDataItem) {
-    const sourceData = [...treeProps.sourceData]
-    deleteValue2Tree(sourceData)
-    function deleteValue2Tree(sourceData) {
-      const length = sourceData.length
-      for(let i = 0 ; i < length; i++) {
-        if(sourceData.indexOf(clickedTree) !== -1) {
-          sourceData.splice(sourceData.indexOf(clickedTree), 1)
-          return
-        } else {
-          sourceData[i].children && deleteValue2Tree(sourceData[i].children)
-        }
-      }
-    }
-    treeProps.onAdd(sourceData)
-    console.log('sourceData', sourceData)
-  }
 
   return <div key={item.value} className={classesResult}>
     <div className={scopedClass('text')}>
       <div className={classes('arrow', expanded ? 'opened' : '')}> 
-        {/* <input type="checkbox" onChange={onChange} checked={checked}/> */}
         {
           item.children ?  
             <Icon name='arrow'  onClick={handleArrowClick}/> : 
@@ -130,15 +110,14 @@ const TreeItem: React.FC<Props> = (props) => {
         <span >{item.text}</span>
         {item.children &&
           <span className='btn'>
-            <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={() => handleAddButtonClick(item)}/>
-            <Icon name='delete' style={{ color: '#006BFF' }} className='button-add'  onClick={() => handleDeleteButtonClick(item)}/>
+            <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={() => handleAddOrDeleteButtonClick(item, 'add')}/>
+            <Icon name='delete' style={{ color: '#006BFF' }} className='button-delete'  onClick={() => handleAddOrDeleteButtonClick(item, 'delete')}/>
           </span>
         }
-        {/* <Icon name='delete' style={{ color: '#006BFF' }} className='button-add'  onClick={() => handleDeleteButtonClick(item)}/> */}
       </div>
     </div>
     <div ref={divRef} className={classesResult2}>
-      {item.children?.map((sub, index) =>
+      {item.children?.map(sub =>
         <TreeItem key={sub.value} item={sub} level={level + 1} treeProps={treeProps}/>
       )}
     </div>
