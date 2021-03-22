@@ -1,18 +1,13 @@
 .fui-tree {
   &-item {
-    outline: 1px solid;
     line-height: 1.5;
   }
-
-  &-level-2 {
-    padding-left: 1em;
+  @for $i from 1 through 10 {
+    &-level-#{$i} {
+      padding-left: 1em;
+    }
   }
-  &-level-3 {
-    padding-left: 1em;
-  }
-  &-level-4 {
-    padding-left: 1em;
-  }
+  
  
   &-text {
     &.selected {
@@ -57,12 +52,16 @@
       }
     }
     &:hover {
-      background: #f6f7fb;
+      // background: #f6f7fb;
     }
   }
 
   &-children{
     overflow: hidden;
     transition: height 200ms;
+    display: block;
+    // &.fui-tree-collapsed {
+      // height: 0;
+    // }
   }
 }

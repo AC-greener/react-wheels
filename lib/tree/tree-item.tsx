@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler,useState, useRef} from 'react'
+import React, { useState, useRef} from 'react'
 import Icon from '../icon/icon'
 import { scopedClassMaker } from '../helper'
 import classes from '../helper/classes'
@@ -27,23 +27,12 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
     expanded ?  '' : scopedClass('collapsed'),
   )
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    if (treeProps.multiple) {
-      if (e.target.checked) {
-        treeProps.onChange([...treeProps.selected, item.value])
-      } else {
-        treeProps.onChange(treeProps.selected.filter(value => value !== item.value))
-      }
-    }
-  };
 
-  const hanldeTreeItemClick = (item) => {
-    console.log(item)
+  const hanldeTreeItemClick = (item: SourceDataItem) => {
+    treeProps.onSelectedUpdate(item)
     if(expanded) {
-      console.log('关闭')
       setExpanded(false)
     } else {
-      console.log('打开')
       setExpanded(true)
     }
   }
@@ -75,10 +64,14 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
   const handleAddOrDeleteButtonClick = (e: React.MouseEvent, clickedTree: SourceDataItem, operator: operator) => {
       e.stopPropagation()
       const v = (Math.random() * 10).toFixed(1) + ''
-      clickedTree.children?.push({
+      if(!clickedTree.children) {
+        clickedTree.children = []
+      }
+      clickedTree.children.push({
         text:  v,
         value: v
       })
+ 
       const sourceData = [...treeProps.sourceData]
   
       updateTreeValue(sourceData)
@@ -103,8 +96,7 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
 
 
   return <div key={item.value} className={classesResult}>
-    <div className="fui-tree-text selected"  onClick={() => hanldeTreeItemClick(item)}>
-      <input type="checkbox" onChange={onChange} checked={treeProps.selected.indexOf(item.value) >= 0 }/>
+    <div className={`fui-tree-text ${item.value === treeProps.selected? 'selected' : ''}`}  onClick={() => hanldeTreeItemClick(item)}>
       <div className={classes('arrow', expanded ? 'opened' : '')}> 
         {
           item.children ?  
@@ -114,12 +106,10 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
       </div>
       <div className='content' onSelect={(e) => e.preventDefault()}>
         <div >{item.text}</div>
-        {item.children &&
-          <div className='btn'>
-            <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={(e: React.MouseEvent) => handleAddOrDeleteButtonClick(e, item, 'add')}/>
-            <Icon name='delete' style={{ color: '#006BFF' }} className='button-delete'  onClick={(e: React.MouseEvent) => handleAddOrDeleteButtonClick(e, item, 'delete')}/>
-          </div>
-        }
+        <div className='btn'>
+          <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={(e: React.MouseEvent) => handleAddOrDeleteButtonClick(e, item, 'add')}/>
+          <Icon name='delete' style={{ color: '#006BFF' }} className='button-delete'  onClick={(e: React.MouseEvent) => handleAddOrDeleteButtonClick(e, item, 'delete')}/>
+        </div>
       </div>
     </div>
     <div ref={treeChildRef} className={classesResult2}>

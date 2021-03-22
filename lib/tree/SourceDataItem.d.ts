@@ -4,10 +4,11 @@ interface SourceDataItem {
   children?: SourceDataItem[];
 }
 
-type TreeProps = {
+interface TreeProps {
   sourceData: SourceDataItem[],
   onSourceDataUpdate: (value: SourceDataItem[]) => void
-  multiple: true,
-  selected: string[],
-  onChange: (values: string[]) => void
+  //设置默认选中的TreeItem
+  selected: string,  
+  // 选中的TreeItem发生变化
+  onSelectedUpdate: (values: SourceDataItem) => void 
 }
