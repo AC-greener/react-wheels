@@ -45,7 +45,10 @@ const TreeExample: React.FC = (props) => {
           onSourceDataUpdate={handleAdd}
           selected={selectedValue}
           multiple={true}
-          onChange={(value: string[]) => setSelectedValue(value)}
+          onChange={(value: string[]) => {
+            console.log('change selected')
+            // setSelectedValue(value)
+          }}
         />
       </div>
     </div>

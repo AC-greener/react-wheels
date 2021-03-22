@@ -37,7 +37,8 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
     }
   };
 
-  const handleArrowClick = () => {
+  const hanldeTreeItemClick = (item) => {
+    console.log(item)
     if(expanded) {
       console.log('关闭')
       setExpanded(false)
@@ -71,7 +72,8 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
     }
   })
 
-  const handleAddOrDeleteButtonClick = (clickedTree: SourceDataItem, operator: operator) => {
+  const handleAddOrDeleteButtonClick = (e: React.MouseEvent, clickedTree: SourceDataItem, operator: operator) => {
+      e.stopPropagation()
       const v = (Math.random() * 10).toFixed(1) + ''
       clickedTree.children?.push({
         text:  v,
@@ -101,22 +103,22 @@ const TreeItem: React.FC<TreeItemProps> = (props) => {
 
 
   return <div key={item.value} className={classesResult}>
-    <div className={scopedClass('text')}>
-      {/* <input type="checkbox" onChange={onChange} checked={treeProps.selected.indexOf(item.value) >= 0 }/> */}
+    <div className="fui-tree-text selected"  onClick={() => hanldeTreeItemClick(item)}>
+      <input type="checkbox" onChange={onChange} checked={treeProps.selected.indexOf(item.value) >= 0 }/>
       <div className={classes('arrow', expanded ? 'opened' : '')}> 
         {
           item.children ?  
-            <Icon name='arrow'  onClick={handleArrowClick}/> : 
+            <Icon name='arrow' /> : 
             <div style={{width:'14px'}}></div>
         }
       </div>
       <div className='content' onSelect={(e) => e.preventDefault()}>
-        <span >{item.text}</span>
+        <div >{item.text}</div>
         {item.children &&
-          <span className='btn'>
-            <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={() => handleAddOrDeleteButtonClick(item, 'add')}/>
-            <Icon name='delete' style={{ color: '#006BFF' }} className='button-delete'  onClick={() => handleAddOrDeleteButtonClick(item, 'delete')}/>
-          </span>
+          <div className='btn'>
+            <Icon name='add' style={{ color: 'red' }} className='button-add'  onClick={(e: React.MouseEvent) => handleAddOrDeleteButtonClick(e, item, 'add')}/>
+            <Icon name='delete' style={{ color: '#006BFF' }} className='button-delete'  onClick={(e: React.MouseEvent) => handleAddOrDeleteButtonClick(e, item, 'delete')}/>
+          </div>
         }
       </div>
     </div>
