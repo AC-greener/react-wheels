@@ -20,10 +20,10 @@ function App() {
       <Layout className='site-layout'>
         <Header className='site-header'>
           <div className="logo">
-            Fake UI
+            Materialize UI
           </div>
         </Header>
-        <Layout>
+        <Layout className='site-main-wrapper'>
           <Aside className='site-aside'>
             <h2>组件</h2>
             <ul>

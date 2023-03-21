@@ -3,7 +3,7 @@ import InputExample2 from './input.example2';
 import InputExample3 from './input.example3';
 import InputExample4 from './input.example4';
 import React, {Fragment} from 'react';
-import Demo from '../../demo';
+import Demo from '../../src/demo';
 import InputExampleSourceCode from './input.example.tsx?raw';
 import InputExampleSourceCode2 from './input.example2.tsx?raw';
 import InputExampleSourceCode3 from './input.example3.tsx?raw';

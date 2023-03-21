@@ -1,7 +1,7 @@
 import ToastExample from './toast.example';
 
 import React, {Fragment} from 'react';
-import Demo from '../../demo';
+import Demo from '../../src/demo';
 import ToastExampleSourceCode from './toast.example.tsx?raw';
 
 const CollapseDemo = () => {

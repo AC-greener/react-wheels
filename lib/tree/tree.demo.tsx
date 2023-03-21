@@ -1,6 +1,6 @@
 import TreeExample from './tree.example';
 import React, {Fragment} from 'react';
-import Demo from '../../demo';
+import Demo from '../../src/demo';
 
 const DialogDemo = () => {
   return (

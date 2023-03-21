@@ -1,7 +1,7 @@
 import DialogExample from './dialog.example';
 import DialogExample2 from './dialog.example2';
 import React, {Fragment} from 'react';
-import Demo from '../../demo';
+import Demo from '../../src/demo';
 import DialogExampleSourceCode from './dialog.example?raw';
 import DialogExampleSourceCode2 from './dialog.example2?raw';
 const DialogDemo = () => {

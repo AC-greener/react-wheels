@@ -1,14 +1,36 @@
-* {margin: 0;padding: 0; box-sizing: border-box; }
-*::before {box-sizing: border-box;}
-*::after {box-sizing: border-box;}
-ul, ol {list-style: none;}
-h1, h2, h3, h4, h5, h6 {font-weight: normal; margin: 10px 0;}
-a { text-decoration: none; color: inherit; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before {
+  box-sizing: border-box;
+}
+*::after {
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 10px 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 pre {
   font-family: "Fira Code Medium", Consolas, monospace;
 }
 $padding: 16px;
-$main-color: #00ADB5;
+$main-color: #00adb5;
 $border-color: #eee;
 body {
   font-size: 16px;
@@ -21,13 +43,24 @@ body {
   padding-top: 16px;
 }
 .site-header {
-  background: $border-color;
+  font-size: 20px;
+  font-weight: 500;
   padding: 8px 0;
+  height: 60px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
   .logo {
     padding: 0 $padding;
     display: flex;
     align-items: center;
-    > img {margin-right: 8px;}
+    > img {
+      margin-right: 8px;
+    }
     > span {
       color: $main-color;
       font-size: 32px;
@@ -40,16 +73,17 @@ pre {
 }
 .site-aside {
   width: 200px;
-  height: calc(100vh - 37px);
-  border-right: 1px solid #EEEEEE;
+  height: calc(100vh - 60px);
+  border-right: 1px solid #eeeeee;
   margin-right: 16px;
+  position: fixed;
   h2 {
     padding: $padding;
     font-size: 18px;
   }
   ul {
     min-width: 12em;
-  
+
     > li {
       a {
         color: #333;
@@ -67,10 +101,11 @@ pre {
   }
 }
 .site-content {
-  height: calc(100vh - 37px);
+  height: calc(100vh - 60px);
   overflow: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 36px;
+  margin-left: 200px;
+
 }
 .site-footer {
   text-align: center;
@@ -81,4 +116,7 @@ pre {
 }
 .example {
   padding: 16px 0;
+}
+.site-main-wrapper {
+  margin-top: 60px;
 }

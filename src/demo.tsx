@@ -3,7 +3,7 @@ import Highlight, {defaultProps} from "prism-react-renderer";
 import {useState} from 'react';
 // import theme from "prism-react-renderer/themes/nightOwl"
 import vsDark from 'prism-react-renderer/themes/vsDark'
-import  Button from './lib/button/button'
+import  Button from '../lib/button/button'
 interface Props {
   code: string;
   children?: React.ReactNode;

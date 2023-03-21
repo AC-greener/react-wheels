@@ -4,7 +4,7 @@ import ButtonExample3 from './button.example3';
 import ButtonExample4 from './button.example4';
 import ButtonExample5 from './button.example5';
 import React, {Fragment} from 'react';
-import Demo from '../../demo';
+import Demo from '../../src/demo';
 import buttonExampleSourceCode from './button.example.tsx?raw';
 import buttonExampleSourceCode2 from './button.example2.tsx?raw';
 import buttonExampleSourceCode3 from './button.example3.tsx?raw';
