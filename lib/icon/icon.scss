@@ -4,6 +4,7 @@
   font-size: 1.25em;
   display: inline-block;
   fill: currentColor;
+  vertical-align: -0.15em;
   &.color-primary {
     color: #1976d2;
   }
@@ -22,5 +23,4 @@
   &.size-large {
     font-size: 1.5rem;
   }
-
 }
