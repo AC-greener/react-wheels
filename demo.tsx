@@ -6,6 +6,7 @@ import vsDark from 'prism-react-renderer/themes/vsDark'
 import  Button from './lib/button/button'
 interface Props {
   code: string;
+  children?: React.ReactNode;
 }
 
 const Demo: React.FunctionComponent<Props> = (props) => {

@@ -23,7 +23,9 @@
   "include": [
     // tsconfig要管这些目录
     "lib/**/*",
+    "src",
   ],
+  "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": [
     "node_modules",
     "build",
