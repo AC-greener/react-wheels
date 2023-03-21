@@ -6,7 +6,7 @@ import DialogExample from '../lib/dialog/dialog.demo';
 import TreeExample from '../lib/tree/tree.demo'
 import LayoutExample from '../lib/layout/layout.example';
 import InputExample from '../lib/input/input.demo';
-import CollapseExample from '../lib/collapse/collapse.example';
+import CollapseExample from '../lib/collapse/collapse.demo';
 import GridExample from '../lib/grid/grid.example';
 import ToastExample from '../lib/toast/toast.example';
 import UploaderExample from '../lib/uploader/uploader.example';

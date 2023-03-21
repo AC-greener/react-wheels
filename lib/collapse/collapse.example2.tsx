@@ -9,8 +9,8 @@ const CollapseExample = () => {
   return (
     <div>
       <div>
-        <h1>可以同时展开多个面板</h1>
-        <Collapse defaultActiveKey={['2']} onClick={ handleClick }>
+        <h1>默认展开全部</h1>
+        <Collapse defaultActiveKey={['1', '2', '3']} onClick={ handleClick }>
           <Panel header="This is panel header 1" activeKey="1">
             <p>111</p>
           </Panel>

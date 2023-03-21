@@ -3,14 +3,11 @@ import React from 'react'
 import Collapse from './collapse'
 import Panel from './panel'
 const CollapseExample = () => {
-  const handleClick = (keys) => {
-    console.log(keys)
-  }
   return (
     <div>
       <div>
-        <h1>可以同时展开多个面板</h1>
-        <Collapse defaultActiveKey={['2']} onClick={ handleClick }>
+        <h1>只能展开一个面板</h1>
+        <Collapse defaultActiveKey={['2']} accordion>
           <Panel header="This is panel header 1" activeKey="1">
             <p>111</p>
           </Panel>
