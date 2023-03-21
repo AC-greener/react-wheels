@@ -10,6 +10,7 @@ import CollapseExample from '../lib/collapse/collapse.example';
 import GridExample from '../lib/grid/grid.example';
 import ToastExample from '../lib/toast/toast.example';
 import UploaderExample from '../lib/uploader/uploader.example';
+import PaginationExample from '../lib/pagination/pagination.example';
 import { Layout, Header, Aside, Content, Footer } from '../lib/layout/layout'
 import './example.scss'
 
@@ -57,11 +58,15 @@ function App() {
               <li>
                 <NavLink activeClassName='active' to="/tree">tree</NavLink>
               </li>
+              <li>
+                <NavLink activeClassName='active' to="/pagination">Pagination</NavLink>
+              </li>
             </ul>
           </Aside>
           <Content className='site-content'>
             {/* <Route path="/icon" component={IconExample} /> */}
             <Route path="/button" component={ButtonExample} />
+            <Route path="/pagination" component={PaginationExample} />
             {/* <Route path="/dialog" component={DialogExample} />
             <Route path="/layout" component={LayoutExample} />
             <Route path="/input" component={InputExample} />
