@@ -5,7 +5,7 @@ import ButtonExample from '../lib/button/button.demo';
 import DialogExample from '../lib/dialog/dialog.demo';
 import TreeExample from '../lib/tree/tree.demo'
 import LayoutExample from '../lib/layout/layout.example';
-import InputExample from '../lib/input/input.example';
+import InputExample from '../lib/input/input.demo';
 import CollapseExample from '../lib/collapse/collapse.example';
 import GridExample from '../lib/grid/grid.example';
 import ToastExample from '../lib/toast/toast.example';
@@ -14,7 +14,6 @@ import PaginationExample from '../lib/pagination/pagination.example';
 import { Layout, Header, Aside, Content, Footer } from '../lib/layout/layout'
 import './example.scss'
 
-console.log('NavLink :>> ', NavLink);
 function App() {
   return (
     <Router>
@@ -29,52 +28,52 @@ function App() {
             <h2>组件</h2>
             <ul>
               <li>
-                <NavLink activeClassName='active' to="/icon">Icon</NavLink>
+                <NavLink activeClassName='active' to="/icon">Icon 图标</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/button">button</NavLink>
+                <NavLink activeClassName='active' to="/button">Button 按钮</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/dialog">Dialog</NavLink>
+                <NavLink activeClassName='active' to="/dialog">Dialog 弹窗</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/layout">Layout</NavLink>
+                <NavLink activeClassName='active' to="/layout">Layout 布局</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/input">Input</NavLink>
+                <NavLink activeClassName='active' to="/input">Input 输入框</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/collapse">Collapse</NavLink>
+                <NavLink activeClassName='active' to="/collapse">Collapse 折叠面板</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/grid">Grid</NavLink>
+                <NavLink activeClassName='active' to="/grid">Grid 栅格布局</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/toast">Toast</NavLink>
+                <NavLink activeClassName='active' to="/toast">Toast 提示</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/uploader">uploader</NavLink>
+                <NavLink activeClassName='active' to="/uploader">Uploader 文件上传</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/tree">tree</NavLink>
+                <NavLink activeClassName='active' to="/tree">Tree 树选择</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/pagination">Pagination</NavLink>
+                <NavLink activeClassName='active' to="/pagination">Pagination 分页</NavLink>
               </li>
             </ul>
           </Aside>
           <Content className='site-content'>
-            {/* <Route path="/icon" component={IconExample} /> */}
+            <Route path="/icon" component={IconExample} />
             <Route path="/button" component={ButtonExample} />
             <Route path="/pagination" component={PaginationExample} />
-            {/* <Route path="/dialog" component={DialogExample} />
+            <Route path="/dialog" component={DialogExample} />
             <Route path="/layout" component={LayoutExample} />
             <Route path="/input" component={InputExample} />
             <Route path="/collapse" component={CollapseExample} />
             <Route path="/grid" component={GridExample} />
             <Route path="/toast" component={ToastExample} />
             <Route path="/uploader" component={UploaderExample} />
-            <Route path="/tree" component={TreeExample} /> */}
+            <Route path="/tree" component={TreeExample} />
           </Content>
         </Layout>
         <Footer></Footer>
