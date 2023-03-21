@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './pagination.scss';
 
 interface IPaginationProps {
@@ -16,13 +16,17 @@ const Pagination = ({ pageSize, total, current, onChange }: IPaginationProps): J
     onChange(page, pageSize);
   };
 
-  const totalPage = Math.ceil(total / pageSize);
-  const startPage = Math.max(current - 2, 1);
-  const endPage = Math.min(current + 2, totalPage);
-  const pageNumbers = Array.from(
-    { length: endPage - startPage + 1 },
-    (_, i) => startPage + i
+  const totalPage = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
+  const startPage = 1;
+  const endPage = totalPage;
+  const pageNumbers = useMemo(
+    () => Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i),
+    [startPage, endPage]
   );
+  console.log('totalPage :>> ', totalPage);
+  console.log('startPage :>> ', startPage);
+  console.log('endPage :>> ', endPage);
+  console.log('pageNumbers :>> ', pageNumbers);
   return (
     <div className="pagination">
       {pageNumbers.map((page) => (
