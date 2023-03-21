@@ -8,7 +8,7 @@ import LayoutExample from '../lib/layout/layout.example';
 import InputExample from '../lib/input/input.demo';
 import CollapseExample from '../lib/collapse/collapse.demo';
 import GridExample from '../lib/grid/grid.example';
-import ToastExample from '../lib/toast/toast.example';
+import ToastExample from '../lib/toast/toast.demo';
 import UploaderExample from '../lib/uploader/uploader.example';
 import PaginationExample from '../lib/pagination/pagination.example';
 import { Layout, Header, Aside, Content, Footer } from '../lib/layout/layout'

@@ -4,7 +4,6 @@ import { Button } from '../index'
 
 const ToastExample = () => {
   const handleClose = () => {
-    console.log('close')
     setVisible(false)
   }
   const [visible, setVisible] = useState(false)
@@ -13,7 +12,7 @@ const ToastExample = () => {
   return (
     <div>
       <div>
-        <h1>totast</h1>
+        <h1>可以出现在不同的位置</h1>
         <Button type='contained' onClick={() => {
           setVisible(true)
           setVertical('top')
