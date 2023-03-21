@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from './icon';
 
-const IconExample: React.FunctionComponent = () => {
+const IconExample: React.FC = () => {
   return (
     <div>
       <h3>设置不同的size</h3>

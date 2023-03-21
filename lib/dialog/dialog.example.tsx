@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dialog from './dialog';
 import { Button } from '../index'
-const DialogExample: React.FunctionComponent = () => {
+const DialogExample: React.FC = () => {
   const [visible, setVisible] =  useState(false)
 
   const handleOk = () => {

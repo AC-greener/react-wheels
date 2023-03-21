@@ -12,7 +12,7 @@ interface buttonProps extends React.HTMLAttributes<HTMLButtonElement> {
   iconposition?: string
 }
 const scopedClass = scopedClassMaker('fake-button')
-const Icon: React.FunctionComponent<buttonProps> = (props: buttonProps)  => {
+const Icon: React.FC<buttonProps> = (props: buttonProps)  => {
   const { className, color, type, disabled, size, icon, onClick, ...restProps } = props
   const classResult = classes(
     scopedClass(),

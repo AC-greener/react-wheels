@@ -13,7 +13,7 @@ interface inputProps extends React.HTMLAttributes<HTMLInputElement> {
   size?: string
 }
 const scopedClass = scopedClassMaker('fake-input')
-const Input: React.FunctionComponent<inputProps> = (props: inputProps)  => {
+const Input: React.FC<inputProps> = (props: inputProps)  => {
   const {
     className, 
     variant, 

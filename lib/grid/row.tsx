@@ -6,7 +6,7 @@ interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter: string | number
 }
 
-const Row: React.FunctionComponent<RowProps> = (props)  => {
+const Row: React.FC<RowProps> = (props)  => {
   const { className, children,  ...restProps } = props
 
   return (

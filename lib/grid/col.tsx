@@ -7,7 +7,7 @@ interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   offset?: string | number
 }
 
-const Col: React.FunctionComponent<ColProps> = (props)  => {
+const Col: React.FC<ColProps> = (props)  => {
   const { className, children,  ...restProps } = props
 
   return (

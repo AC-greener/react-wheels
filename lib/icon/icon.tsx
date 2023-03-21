@@ -9,7 +9,7 @@ interface IconProps extends React.SVGAttributes<SVGElement> {
   fontSize?: string
 }
 
-const Icon: React.FunctionComponent<IconProps> = (props: IconProps)  => {
+const Icon: React.FC<IconProps> = (props: IconProps)  => {
   const { className, color, fontSize, name, ...restProps } = props
   return (
     <svg className={ classes('xui-icon', className, color ? `color-${color}`: '', fontSize? `size-${fontSize}`: '')} {...restProps}>

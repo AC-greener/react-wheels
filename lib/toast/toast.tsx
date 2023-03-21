@@ -13,7 +13,7 @@ interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   }
 }
 
-const Totast: React.FunctionComponent<ToastProps> = (props: ToastProps)  => {
+const Totast: React.FC<ToastProps> = (props: ToastProps)  => {
   const { className, message, onClose, anchorOrigin, visible, ...restProps } = props
   const name = classes(
     'fake-toast-root',

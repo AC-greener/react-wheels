@@ -9,7 +9,7 @@ interface panelProps extends React.HTMLAttributes<HTMLDivElement> {
   headerAction?: (action: string, payload: string) => void
 }
 
-const Panel: React.FunctionComponent<panelProps> = (props: panelProps) => {
+const Panel: React.FC<panelProps> = (props: panelProps) => {
   const { header, defaultActiveKey, activeKey, headerAction, ...restProps } = props
   const handleHeaderClick: React.MouseEventHandler = (e) => {
     // 吧自己的key通知给父组件

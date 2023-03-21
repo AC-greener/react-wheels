@@ -1,7 +1,7 @@
 import React from 'react';
 import{ alert } from './dialog';
 import { Button } from '../index'
-const DialogExample: React.FunctionComponent = () => {
+const DialogExample: React.FC = () => {
   return (
     <div>
       <h3>更简洁的方式</h3>

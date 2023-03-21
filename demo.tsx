@@ -9,7 +9,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const Demo: React.FunctionComponent<Props> = (props) => {
+const Demo: React.FC<Props> = (props) => {
   const [codeVisible, setCodeVisible] = useState(false);
   const code = (
     <Highlight {...defaultProps} theme={vsDark} code={props.code} language="jsx">

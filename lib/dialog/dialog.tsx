@@ -21,7 +21,7 @@ interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const scopedClass = scopedClassMaker('fake-modal')
 
-const Dialog: React.FunctionComponent<DialogProps> = (props) => {
+const Dialog: React.FC<DialogProps> = (props) => {
   const { visible, onOk, onCancel, maskClosable, width, okText, cancelText, className, title, closable, afterClose, ...restProps } = props
   const classResult = classes(scopedClass(), className)
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './button';
 import './button.example.scss'
-const ButtonExample: React.FunctionComponent = () => {
+const ButtonExample: React.FC = () => {
   return (
     <div >
       <div >

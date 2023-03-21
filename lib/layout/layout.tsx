@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 const sc = scopedClassMaker('fake-layout')
-const Layout: React.FunctionComponent<Props> = (props) => {
+const Layout: React.FC<Props> = (props) => {
   const {className, ...rest} = props;
   let hasAside = false
   const children = props.children as Array<ReactElement>;

@@ -8,7 +8,7 @@ interface collapseProps extends React.HTMLAttributes<HTMLDivElement> {
   accordion?: boolean
 }
 
-const Collapse: React.FunctionComponent<collapseProps> = (props: collapseProps) => {
+const Collapse: React.FC<collapseProps> = (props: collapseProps) => {
   const { defaultActiveKey, onClick, accordion, ...restProps } = props
   const initialState = { defaultActiveKey: JSON.parse(JSON.stringify(defaultActiveKey)) };
 

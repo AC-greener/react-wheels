@@ -5,7 +5,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 const sc = scopedClassMaker('fake-layout')
-const Aside: React.FunctionComponent<Props> = (props) => {
+const Aside: React.FC<Props> = (props) => {
   const {className, ...rest} = props;
   return (
     <div className={classes(sc('aside'), className)} {...rest}>

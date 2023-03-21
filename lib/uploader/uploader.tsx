@@ -17,7 +17,7 @@ const createFormData = (name: string, file): FormData => {
   return formData
 }
 
-const Uploader: React.FunctionComponent<UploaderProps> = (props) => {
+const Uploader: React.FC<UploaderProps> = (props) => {
   const { 
     className, 
     name,
