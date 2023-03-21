@@ -1,5 +1,4 @@
 import ButtonExample from './button.example';
-console.log('ButtonExample :>> ', ButtonExample);
 import ButtonExample2 from './button.example2';
 import ButtonExample3 from './button.example3';
 import ButtonExample4 from './button.example4';
@@ -11,7 +10,6 @@ import buttonExampleSourceCode2 from './button.example2.tsx?raw';
 import buttonExampleSourceCode3 from './button.example3.tsx?raw';
 import buttonExampleSourceCode4 from './button.example4.tsx?raw';
 import buttonExampleSourceCode5 from './button.example5.tsx?raw';
-console.log('buttonExampleSourceCode :>> ', buttonExampleSourceCode);
 const ButtonDemo = () => {
   return (
     <Fragment>
