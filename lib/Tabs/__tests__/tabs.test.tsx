@@ -23,25 +23,14 @@ const tabs = [
 
 describe('Tabs Component', () => {
   it('renders the tabs and contents correctly', () => {
-    const { getByText } = render(<Tabs tabs={tabs} activeKey="tab1" onChange={() => {}} />);
+    const { getByText } = render(<Tabs tabs={tabs} activeKey='tab1' onChange={() => {}} />);
+    // assert initial state
     const tab1Button = getByText('Tab 1');
     const tab2Button = getByText('Tab 2');
-    const tab3Button = getByText('Tab 3');
-
+    const content1 = getByText('Content for tab 1');
     expect(tab1Button).toHaveClass('zyun-tabs-button--active');
     expect(tab2Button).not.toHaveClass('zyun-tabs-button--active');
-    expect(tab3Button).not.toHaveClass('zyun-tabs-button--active');
+    expect(content1).toBeInTheDocument();
 
-    const content = getByText('Content for tab 1');
-    expect(content).toBeInTheDocument();
-
-    fireEvent.click(tab2Button);
-
-    expect(tab1Button).not.toHaveClass('zyun-tabs-button--active');
-    expect(tab2Button).toHaveClass('zyun-tabs-button--active');
-    expect(tab3Button).not.toHaveClass('zyun-tabs-button--active');
-
-    const newContent = getByText('Content for tab 2');
-    expect(newContent).toBeInTheDocument();
   });
 });

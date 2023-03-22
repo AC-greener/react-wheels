@@ -2,6 +2,7 @@ module.exports = {
   verbose: true,
   clearMocks: false,
   reporters: ["default"],
+  testEnvironment: 'jsdom',
 
   collectCoverage: false,
   // collectCoverageFrom: ["lib/**/*.{ts,tsx}", "!**/node_modules/**"],
