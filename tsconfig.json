@@ -7,6 +7,7 @@
     "module": "esnext",
     "target": "es5",
     "lib": ["es5", "esnext", "ES2016" ,"dom"],
+    "types": ["jest", "@testing-library/jest-dom"],
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",

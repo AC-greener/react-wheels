@@ -22,9 +22,8 @@ module.exports = {
   },
   //测试文件的路径
   testMatch: ['<rootDir>/**/__tests__/**/*.test.(js|jsx|ts|tsx)'],
-  transform: {
-    "^.+test\\.(js|jsx)$": "babel-jest",
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-  },
-  setupFilesAfterEnv: ["<rootDir>test/setupTests.js"]
+  // transform: {
+  //   "^.+test\\.(js|jsx)$": "babel-jest",
+  //   '^.+\\.(ts|tsx)$': 'ts-jest',
+  // },
 }

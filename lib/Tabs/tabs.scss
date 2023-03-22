@@ -1,0 +1,25 @@
+.zyun-tabs-root {
+  .zyun-tabs-content {
+    padding-top: 16px;
+  }
+  .zyun-tabs-header {
+    padding-left: 20px;
+    display: flex;
+    background: #f7f9fa;
+    border-bottom: 1px solid #ebf0f5;
+  }
+
+  .zyun-tabs-button {
+    background-color: inherit;
+    padding: 9px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 16px;
+  }
+
+  .zyun-tabs-button--active {
+    border-bottom: 2px solid #006bff;
+    color: #006bff;
+  }
+}
