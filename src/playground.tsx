@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import RateDemo from '../lib/rate/rate.demo';
 import IconExample from '../lib/icon/icon.demo';
 import TabsExample from '../lib/tabs/tabs.demo';
 import ButtonExample from '../lib/button/button.demo';
@@ -38,6 +39,9 @@ function App() {
                 <NavLink activeClassName='active' to="/button">Button 按钮</NavLink>
               </li>
               <li>
+                <NavLink activeClassName='active' to="/rate">Rate 评分</NavLink>
+              </li>
+              <li>
                 <NavLink activeClassName='active' to="/dialog">Dialog 弹窗</NavLink>
               </li>
               <li>
@@ -68,6 +72,7 @@ function App() {
           </Aside>
           <Content className='site-content'>
             <Route path="/icon" component={IconExample} />
+            <Route path="/rate" component={RateDemo} />
             <Route path="/tabs" component={TabsExample} />
             <Route path="/button" component={ButtonExample} />
             <Route path="/pagination" component={PaginationExample} />
