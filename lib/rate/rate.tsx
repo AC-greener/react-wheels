@@ -55,7 +55,15 @@ const Rate: React.FC<RateProps> = ({
             transition: "color 0.3s",
           }}
         >
-          {isHalf ? "⭐" : "★"}
+            {isHalf ? (
+          <svg width='1em' height='1em' fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 17.27l-6.18 3.76 1.64-7.16L2.56 9.74l7.22-.62L12 2l2.22 7.12 7.22.62-5.9 4.13 1.64 7.16z" opacity="0.5"/>
+          </svg>
+        ) : (
+          <svg width='1em' height='1em' fill="currentColor"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 17.27l-6.18 3.76 1.64-7.16L2.56 9.74l7.22-.62L12 2l2.22 7.12 7.22.62-5.9 4.13 1.64 7.16z"/>
+          </svg>
+        )}
         </span>
       );
     }

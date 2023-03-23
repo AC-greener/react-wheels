@@ -12,7 +12,7 @@ const MyComponent = () => {
   return (
     <div>
       <h1>My Component</h1>
-      <Rate count={5} value={value} onChange={handleRateChange} />
+      <Rate count={5} color='red' size={20} value={value} onChange={handleRateChange} />
     </div>
   );
 };
