@@ -1,0 +1,65 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  &.default {
+    background-color: #ccc;
+    &.medium {
+      border-radius: 10px;
+    }
+    &.large {
+      border-radius: 15px;
+    }
+  }
+  &.dark {
+    background-color: #333;
+    &.medium {
+      border-radius: 10px;
+    }
+    &.large {
+      border-radius: 15px;
+    }
+  }
+  .switch-input {
+    display: none;
+    &:checked + .switch-label:before {
+      transform: translateX(20px);
+    }
+    &:disabled + .switch-label {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  .switch-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #fff;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s ease-in-out;
+    }
+    /* Add the following to move label to the right */
+    &.move-right::before {
+      left: unset;
+      right: 2px;
+    }
+  }
+  
+}

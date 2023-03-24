@@ -13,6 +13,7 @@ import GridExample from '../lib/grid/grid.example';
 import ToastExample from '../lib/toast/toast.demo';
 import UploaderExample from '../lib/uploader/uploader.example';
 import PaginationExample from '../lib/pagination/pagination.example';
+import SwitchDemo from '../lib/switch/switch.demo';
 import { Layout, Header, Aside, Content, Footer } from '../lib/layout/layout'
 import './example.scss'
 
@@ -33,7 +34,10 @@ function App() {
                 <NavLink activeClassName='active' to="/icon">Icon 图标</NavLink>
               </li>
               <li>
-                <NavLink activeClassName='active' to="/tabs">tabs </NavLink>
+                <NavLink activeClassName='active' to="/tabs">tabs 选项卡</NavLink>
+              </li>
+              <li>
+                <NavLink activeClassName='active' to="/switch">Switch 开关</NavLink>
               </li>
               <li>
                 <NavLink activeClassName='active' to="/button">Button 按钮</NavLink>
@@ -73,6 +77,7 @@ function App() {
           <Content className='site-content'>
             <Route path="/icon" component={IconExample} />
             <Route path="/rate" component={RateDemo} />
+            <Route path="/switch" component={SwitchDemo} />
             <Route path="/tabs" component={TabsExample} />
             <Route path="/button" component={ButtonExample} />
             <Route path="/pagination" component={PaginationExample} />
